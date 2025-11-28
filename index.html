@@ -3,49 +3,174 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>RealisMotion Demo — Single Video</title>
-  <meta name="description" content="Demo page for RealiMotion-style paper / videos.">
-  <link rel="stylesheet" href="css/styles.css">
+  <title>3D Scene-Adaptive Trajectory-Controllable Human Image Animation with Camera Movement</title>
+  <meta name="description" content="Demo page for 3D Scene-Adaptive Trajectory-Controllable Human Image Animation with Camera Movement">
+  <style>
+    :root{
+      --bg:#0f1724; /* dark navy */
+      --card:#0b1220;
+      --muted:#94a3b8;
+      --accent:#7dd3fc; /* cyan */
+      --glass: rgba(255,255,255,0.04);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial; margin:0;background:linear-gradient(180deg,var(--bg),#071021);color:#e6eef8}
+    .wrap{max-width:1100px;margin:0 auto;padding:28px}
+    header.site-header{display:flex;align-items:center;gap:18px;padding:18px;border-radius:12px;background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));box-shadow:0 6px 24px rgba(2,6,23,0.6)}
+    header h1{margin:0;font-size:18px;line-height:1.1}
+    header .meta{color:var(--muted);font-size:13px}
+    .links a{color:var(--accent);text-decoration:none;margin-right:10px}
+
+    main{margin-top:20px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:18px}
+
+    .card{background:var(--card);border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.03);box-shadow:0 8px 30px rgba(2,6,23,0.6)}
+    .video-wrap{position:relative;padding-top:56.25%;background:var(--glass)}
+    .video-wrap video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+    .card-body{padding:12px}
+    .card h3{margin:0 0 6px;font-size:15px}
+    .card p{margin:0;color:var(--muted);font-size:13px}
+    .muted{color:var(--muted)}
+
+    .actions{margin-top:8px;display:flex;gap:10px;align-items:center}
+    .btn{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:6px 10px;border-radius:8px;color:var(--accent);cursor:pointer;font-size:13px}
+    .btn.secondary{color:var(--muted);border-color:transparent}
+
+    footer{margin-top:28px;color:var(--muted);font-size:13px;text-align:center}
+
+    /* Modal */
+    .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:linear-gradient(rgba(1,4,9,0.6),rgba(1,4,9,0.85));z-index:1200;padding:24px}
+    .modal.open{display:flex}
+    .modal-inner{width:100%;max-width:1100px;background:#05070a;border-radius:10px;overflow:hidden;box-shadow:0 40px 120px rgba(2,6,23,0.8)}
+    .modal-body{position:relative;background:#000}
+    .modal-body video{width:100%;height:70vh;max-height:78vh;display:block}
+    .modal-close{position:absolute;right:12px;top:12px;background:transparent;border:0;color:#fff;font-size:22px;padding:8px;cursor:pointer}
+
+    /* responsive tweaks */
+    @media (max-width:640px){
+      header{flex-direction:column;align-items:flex-start}
+      .modal-body video{height:50vh}
+    }
+
+  </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="wrap">
-      <h1>RealisMotion — Demo Gallery</h1>
-      <p class="lead">Paper • Code • Video example</p>
-      <p class="links">
-        <a href="https://arxiv.org/abs/xxxx.xxxxx" target="_blank" rel="noopener">Paper (arXiv)</a> ·
-        <a href="https://github.com/robinhood256100/web-disp" target="_blank" rel="noopener">Code (GitHub)</a>
-      </p>
-    </div>
-  </header>
-
-  <main class="wrap">
-    <section id="gallery" class="grid" aria-label="Video example">
-      <article class="card" data-high="assets/videos/result.mp4">
-        <button class="thumb-btn" aria-label="Open example video">
-          <video class="thumb" muted playsinline preload="metadata" loop controls>
-            <source src="assets/videos/result.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </button>
-        <div class="meta">
-          <h3>Example Video</h3>
-          <p>Resolution: 512×512, 30fps</p>
-          <p class="meta-links">
-            <a href="assets/videos/result.mp4" download>Download Video</a>
-          </p>
+  <div class="wrap">
+    <header class="site-header">
+      <div style="flex:1">
+        <h1>3D Scene-Adaptive Trajectory-Controllable Human Image Animation with Camera Movement</h1>
+        <div class="meta">Deyin Liu · Jicheng Xu · Lin Yuanbo Wu · Xiaowei Zhao · Xiatian Zhu · Anjan Dutta · Zhe Jin</div>
+      </div>
+      <div style="text-align:right">
+        <div class="links">
+          <a href="#" target="_blank">Paper (arXiv)</a>
+          <a href="#" target="_blank">Code (GitHub)</a>
         </div>
-      </article>
-    </section>
-  </main>
+      </div>
+    </header>
 
-  <footer class="site-footer">
-    <div class="wrap">
-      <p>基于模板改造 · 保持原作者署名。示例页由你呈现。</p>
+    <main>
+      <section class="grid" id="gallery">
+        <!-- Video 1 -->
+        <article class="card" data-high="assets/videos/result.mp4" aria-label="result">
+          <div class="video-wrap">
+            <video muted playsinline preload="metadata" loop>
+              <source src="assets/videos/result.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="card-body">
+            <h3>Result A</h3>
+            <p class="muted">Short demo — click to enlarge & play</p>
+            <div class="actions">
+              <button class="btn" data-high="assets/videos/result.mp4">Open</button>
+              <a class="btn secondary" href="assets/videos/result.mp4" download>Download</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Video 2 -->
+        <article class="card" data-high="assets/videos/result2.mp4" aria-label="result2">
+          <div class="video-wrap">
+            <video muted playsinline preload="metadata" loop>
+              <source src="assets/videos/result2.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="card-body">
+            <h3>Result B</h3>
+            <p class="muted">Alternate view — click to enlarge & play</p>
+            <div class="actions">
+              <button class="btn" data-high="assets/videos/result2.mp4">Open</button>
+              <a class="btn secondary" href="assets/videos/result2.mp4" download>Download</a>
+            </div>
+          </div>
+        </article>
+
+      </section>
+    </main>
+
+    <footer>
+      © 2025 — 3D Scene-Adaptive Trajectory-Controllable Human Image Animation with Camera Movement
+    </footer>
+  </div>
+
+  <!-- Modal -->
+  <div id="modal" class="modal" aria-hidden="true">
+    <div class="modal-inner">
+      <div class="modal-body">
+        <button id="modal-close" class="modal-close" aria-label="Close">✕</button>
+        <video id="modalVideo" controls playsinline></video>
+      </div>
     </div>
-  </footer>
+  </div>
 
-  <script src="js/main.js" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+      const gallery = document.getElementById('gallery');
+      const modal = document.getElementById('modal');
+      const modalVideo = document.getElementById('modalVideo');
+      const closeBtn = document.getElementById('modal-close');
+
+      // open buttons
+      gallery.addEventListener('click', e=>{
+        const btn = e.target.closest('button[data-high]');
+        const card = e.target.closest('.card');
+        let src = null;
+        if(btn) src = btn.dataset.high;
+        else if(card) src = card.dataset.high; // clicking the card opens too
+        if(!src) return;
+        openModal(src);
+      });
+
+      function openModal(src){
+        modal.classList.add('open');
+        modal.setAttribute('aria-hidden','false');
+        modalVideo.pause();
+        modalVideo.removeAttribute('src');
+        modalVideo.innerHTML = '';
+        const s = document.createElement('source');
+        s.src = src;
+        s.type = 'video/mp4';
+        modalVideo.appendChild(s);
+        modalVideo.load();
+        modalVideo.play().catch(()=>{});
+      }
+
+      function closeModal(){
+        modal.classList.remove('open');
+        modal.setAttribute('aria-hidden','true');
+        modalVideo.pause();
+        modalVideo.removeAttribute('src');
+        modalVideo.innerHTML = '';
+      }
+
+      closeBtn.addEventListener('click', closeModal);
+      modal.addEventListener('click', (e)=>{ if(e.target===modal) closeModal(); });
+      document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeModal(); });
+
+    });
+  </script>
 </body>
 </html>
-
