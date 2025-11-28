@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>RealisMotion Demo — Demo Gallery</title>
+  <title>RealisMotion Demo — Single Video</title>
   <meta name="description" content="Demo page for RealiMotion-style paper / videos.">
   <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -11,51 +11,41 @@
   <header class="site-header">
     <div class="wrap">
       <h1>RealisMotion — Demo Gallery</h1>
-      <p class="lead">Paper • Code • Video examples</p>
+      <p class="lead">Paper • Code • Video example</p>
       <p class="links">
         <a href="https://arxiv.org/abs/xxxx.xxxxx" target="_blank" rel="noopener">Paper (arXiv)</a> ·
-        <a href="https://github.com/your/repo" target="_blank" rel="noopener">Code (GitHub)</a>
+        <a href="https://github.com/robinhood256100/web-disp" target="_blank" rel="noopener">Code (GitHub)</a>
       </p>
     </div>
   </header>
 
   <main class="wrap">
-    <section id="gallery" class="grid" aria-label="Video examples">
-      <!-- card 模板：复制并替换 data-high、poster、preview -->
-      <article class="card" data-high="assets/videos/sample-high1.webm">
-        <button class="thumb-btn" aria-label="Open example 1">
-          <video class="thumb" poster="assets/thumbs/t1.jpg" muted playsinline preload="metadata" loop>
-            <source src="assets/preview_gifs/p1.mp4" type="video/mp4">
+    <section id="gallery" class="grid" aria-label="Video example">
+      <article class="card" data-high="assets/videos/result.mp4">
+        <button class="thumb-btn" aria-label="Open example video">
+          <video class="thumb" muted playsinline preload="metadata" loop controls>
+            <source src="assets/videos/result.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </button>
         <div class="meta">
-          <h3>Example 1</h3>
-          <p>Short description. Resolution: 512×512, 30fps</p>
-          <p class="meta-links"><a href="assets/videos/sample-high1.webm" download>Download</a></p>
+          <h3>Example Video</h3>
+          <p>Resolution: 512×512, 30fps</p>
+          <p class="meta-links">
+            <a href="assets/videos/result.mp4" download>Download Video</a>
+          </p>
         </div>
       </article>
-
-      <!-- 在这里复制更多 article card -->
     </section>
   </main>
 
-  <!-- Modal -->
-  <div id="modal" class="modal" aria-hidden="true" role="dialog">
-    <div class="modal-inner">
-      <button id="modal-close" class="modal-close" aria-label="Close">✕</button>
-      <div class="modal-body">
-        <video id="modalVideo" controls playsinline></video>
-      </div>
-    </div>
-  </div>
-
   <footer class="site-footer">
     <div class="wrap">
-      <p>基于模板改造 · 保持原作者署名。示例页由你名字呈现。</p>
+      <p>基于模板改造 · 保持原作者署名。示例页由你呈现。</p>
     </div>
   </footer>
 
-<script src="js/main.js" defer></script>
+  <script src="js/main.js" defer></script>
 </body>
 </html>
+
