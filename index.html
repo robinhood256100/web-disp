@@ -208,9 +208,9 @@
       max-height: 450px;
     }
 
-    /* 新增：大幅缩小case间距 */
+    /* 新增：case间距最小化 */
     .comparison-section .case-wrapper {
-      margin-bottom: -20px; /* 更激进的负值 */
+      margin-bottom: -40px; /* 极致压缩case之间的间距 */
     }
 
     /* 新增：为比较案例包装器添加flex-wrap */
@@ -222,19 +222,18 @@
     .video-labels {
       flex-basis: 100%;
       margin-left: 32px;
-      margin-top: -15px; /* 更紧贴视频 */
-      margin-bottom: -15px; /* 减少下方间距 */
+      margin-top: -40px; /* 紧贴到case-2视频上 */
       color: var(--muted);
       font-size: 12px;
       font-weight: 500;
       display: flex;
       justify-content: space-around;
-      line-height: 0.8; /* 进一步压缩行高 */
+      line-height: 1;
     }
 
     /* 新增：特定标签额外左移 */
     .video-labels .shift-left {
-      margin-left: -48px; /* 向左平移4个字符（约48px） */
+      margin-left: -48px; /* 向左平移4个字符 */
     }
 
     /* 新增：全局描述文字样式 */
@@ -243,7 +242,7 @@
       color: var(--muted);
       font-size: 14px;
       line-height: 1.6;
-      margin-top: 20px;
+      margin-top: 30px; /* 恢复与标签行的正常间距 */
       margin-bottom: 40px;
     }
 
@@ -347,7 +346,7 @@
       <section class="ablation-section">
         <h2 class="ablation-title">Ablation on ground-adaptive 3D motion retargeting</h2>
         
-        <!-- 第一个消融实验的第一个案例，添加了 case-wrapper-ablation1 类 -->
+        <!-- 第一个消融实验的第一个案例 -->
         <div class="case-wrapper case-wrapper-ablation1">
           <div class="case-label">case-1</div>
           <div class="ablation-videos four-videos">
@@ -378,7 +377,7 @@
           </div>
         </div>
 
-        <!-- 第一个消融实验的第二个案例，添加了 case-wrapper-ablation1 类 -->
+        <!-- 第一个消融实验的第二个案例 -->
         <div class="case-wrapper case-wrapper-ablation1">
           <div class="case-label">case-2</div>
           <div class="ablation-videos four-videos">
@@ -415,7 +414,7 @@
 
         <h2 class="ablation-title">Ablation on viewpoint-adaptive scene guided fusion for camera control</h2>
         
-        <!-- 第二个消融实验的案例，保持原样 -->
+        <!-- 第二个消融实验的案例 -->
         <div class="case-wrapper">
           <div class="case-label">case-1</div>
           <div class="ablation-videos three-videos">
