@@ -31,7 +31,7 @@
     .ablation-section{margin-top:40px}
     .ablation-title{font-size:28px; color:#000000; margin-bottom:10px; text-align:center}
     
-    /* 案例包装器 - 进一步减小行间距 */
+    /* 案例包装器 - 调整行间距 */
     .case-wrapper{display:flex; align-items:center; gap:15px; margin-bottom:10px}
     
     /* 竖直案例标签 - 旋转180度，字体更小，无边框 */
@@ -42,7 +42,7 @@
       color:#3a8fdc;
       font-size:16px;
       font-weight:bold;
-      height:240px;
+      height:220px;
       display:flex;
       align-items:center;
       justify-content:center;
@@ -60,29 +60,40 @@
       flex:1;
     }
     
-    /* video元素 - 统一高度 */
+    /* video元素容器 */
     .ablation-videos .video-item{
       flex:0 0 auto;
       min-width:0;
     }
-    .ablation-videos .video-item video{
-      height:180px;
-      width:auto;
+    
+    /* 第二个消融实验：保持原有样式，不做任何修改 */
+    .ablation-videos.three-videos .video-item video{
+      max-width:320px;
+      height:auto;
       border-radius:6px;
       display:block;
     }
     
-    /* 四个视频的特殊布局 - Ablation1 保持240px宽度 */
-    .ablation-videos.four-videos .video-item video{
-      max-width:240px;
-    }
-    .ablation-videos.four-videos .video-item:nth-child(2){
-      margin-right:20px;
+    /* 第一个消融实验：为视频容器设置统一高度 */
+    .ablation-videos.four-videos .video-item{
+      height:180px; /* 统一高度 */
+      display:flex;
+      align-items:center;
+      justify-content:center;
     }
     
-    /* 三个视频的布局 - Ablation2 改回320px宽度 */
-    .ablation-videos.three-videos .video-item video{
-      max-width:320px;
+    .ablation-videos.four-videos .video-item video{
+      height:100%; /* 视频高度100%填充容器 */
+      width:auto; /* 宽度自动保持比例 */
+      max-width:220px; /* 限制最大宽度 */
+      border-radius:6px;
+      display:block;
+      object-fit:contain; /* 确保完整显示 */
+    }
+    
+    /* 第一个消融实验：在第二和第三个视频之间添加间距 */
+    .ablation-videos.four-videos .video-item:nth-child(2){
+      margin-right:20px;
     }
 
     /* 描述文字样式 */
@@ -115,6 +126,10 @@
         height:auto;
         max-width:400px;
       }
+      .ablation-videos.four-videos .video-item{
+        height:auto; /* 移动端恢复自动高度 */
+        width:100%;
+      }
       .ablation-videos.four-videos .video-item:nth-child(2){margin-right:0}
     }
   </style>
@@ -126,7 +141,7 @@
       <div class="authors">Deyin Liu · Jicheng Xu · Lin Yuanbo Wu · Xiaowei Zhao · Xiatian Zhu · Anjan Dutta · Zhe Jin</div>
       <div class="links-row">
         <a class="btn-black" href="#" target="_blank" rel="noopener">arXiv</a>
-        <a class="btn-black" href="https://github.com/robinhood256100/web-disp  " target="_blank" rel="noopener">GitHub</a>
+        <a class="btn-black" href="https://github.com/robinhood256100/web-disp   " target="_blank" rel="noopener">GitHub</a>
       </div>
     </header>
 
