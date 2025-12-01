@@ -29,31 +29,69 @@
 
     /* 新增样式 */
     .ablation-section{margin-top:40px}
-    .ablation-title{font-size:28px; color:#000000; margin-bottom:20px; text-align:center}
-    .ablation-group{margin-bottom:30px}
-    .ablation-subtitle{font-size:20px; color:#3a8fdc; margin:20px 0 10px 0; text-align:center}
+    .ablation-title{font-size:28px; color:#000000; margin-bottom:10px; text-align:center}
     
-    /* Ablation视频容器 - 增大尺寸 */
-    .ablation-videos{display:flex; justify-content:center; align-items:center; gap:10px; flex-wrap:wrap}
-    .ablation-videos .video-item{flex:0 1 300px; min-width:0} /* 增大到300px */
+    /* 案例包装器 - 水平布局 */
+    .case-wrapper{display:flex; align-items:center; gap:15px; margin-bottom:25px}
+    
+    /* 竖直案例标签 */
+    .case-label{
+      writing-mode: vertical-rl;  /* 竖排文字 */
+      text-orientation: mixed;    /* 文字方向 */
+      color:#3a8fdc;
+      font-size:20px;
+      font-weight:bold;
+      height:220px;               /* 设置高度使文字垂直居中 */
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:0 5px;
+      flex-shrink:0;
+      border: 1px solid #e0e0e0; /* 添加边框让标签更明显 */
+      border-radius: 4px;
+    }
+    
+    /* Ablation视频容器 */
+    .ablation-videos{display:flex; justify-content:center; align-items:center; gap:8px; flex-wrap:wrap; flex:1}
+    .ablation-videos .video-item{flex:0 1 280px; min-width:0}
     .ablation-videos .video-item video{width:100%; border-radius:6px}
     
-    /* 四个视频的特殊布局 - 在一行显示并分组 */
-    .ablation-videos.four-videos{flex-wrap:nowrap; gap:8px}
-    .ablation-videos.four-videos .video-item{flex:0 1 220px} /* 四个视频时稍小一点 */
+    /* 四个视频的特殊布局 - 在一行显示 */
+    .ablation-videos.four-videos{flex-wrap:nowrap}
+    .ablation-videos.four-videos .video-item{flex:0 1 200px}
     /* 在第二和第三个视频之间增加大间距，实现分组效果 */
-    .ablation-videos.four-videos .video-item:nth-child(2){margin-right:25px}
+    .ablation-videos.four-videos .video-item:nth-child(2){margin-right:20px}
     
-    /* 三个视频的布局 - 可以更大 */
-    .ablation-videos.three-videos .video-item{flex:0 1 320px}
+    /* 三个视频的布局 */
+    .ablation-videos.three-videos .video-item{flex:0 1 300px}
+
+    /* 描述文字样式 */
+    .ablation-description{
+      text-align:center;
+      color:var(--muted);
+      font-size:14px;
+      margin-top:10px;
+      margin-bottom:40px;
+      line-height:1.6;
+      max-width:900px;
+      margin-left:auto;
+      margin-right:auto;
+    }
 
     footer{margin-top:22px;color:var(--muted);font-size:13px;text-align:center}
 
     @media (max-width:800px){
       .grid{grid-template-columns:1fr}
+      .case-wrapper{flex-direction:column; align-items:center}
+      .case-label{
+        writing-mode: horizontal-tb;  /* 移动端恢复横排 */
+        height:auto;
+        margin-bottom:10px;
+        height: auto;
+        border: none;
+      }
       .ablation-videos{flex-direction:column; align-items:center}
       .ablation-videos .video-item{width:100%; max-width:400px}
-      /* 移除四个视频布局的特殊间距 */
       .ablation-videos.four-videos{flex-wrap:wrap}
       .ablation-videos.four-videos .video-item:nth-child(2){margin-right:0}
     }
@@ -66,7 +104,7 @@
       <div class="authors">Deyin Liu · Jicheng Xu · Lin Yuanbo Wu · Xiaowei Zhao · Xiatian Zhu · Anjan Dutta · Zhe Jin</div>
       <div class="links-row">
         <a class="btn-black" href="#" target="_blank" rel="noopener">arXiv</a>
-        <a class="btn-black" href="https://github.com/robinhood256100/web-disp " target="_blank" rel="noopener">GitHub</a>
+        <a class="btn-black" href="https://github.com/robinhood256100/web-disp  " target="_blank" rel="noopener">GitHub</a>
       </div>
     </header>
 
@@ -89,10 +127,10 @@
 
       <!-- 新增 Ablation 部分 -->
       <section class="ablation-section">
-        <h2 class="ablation-title">Ablation on ground-adaptive 3D motion retargeting</h3>
+        <h2 class="ablation-title">Ablation on ground-adaptive 3D motion retargeting</h2>
         
-        <div class="ablation-group">
-          <h3 class="ablation-subtitle">case-1</h4>
+        <div class="case-wrapper">
+          <div class="case-label">case-1</div>
           <div class="ablation-videos four-videos">
             <div class="video-item">
               <video autoplay muted playsinline loop>
@@ -121,8 +159,8 @@
           </div>
         </div>
 
-        <div class="ablation-group">
-          <h3 class="ablation-subtitle">case-2</h4>
+        <div class="case-wrapper">
+          <div class="case-label">case-2</div>
           <div class="ablation-videos four-videos">
             <div class="video-item">
               <video autoplay muted playsinline loop>
@@ -150,11 +188,15 @@
             </div>
           </div>
         </div>
-
-        <h2 class="ablation-title">Ablation on viewpoint-adaptive scene guided fusion for camera control</h3>
         
-        <div class="ablation-group">
-          <h3 class="ablation-subtitle">case-1</h4>
+        <div class="ablation-description">
+          This ablation study validates the effectiveness of our ground-adaptive 3D motion retargeting module, which enables realistic human-scene interaction.
+        </div>
+
+        <h2 class="ablation-title">Ablation on viewpoint-adaptive scene guided fusion for camera control</h2>
+        
+        <div class="case-wrapper">
+          <div class="case-label">case-1</div>
           <div class="ablation-videos three-videos">
             <div class="video-item">
               <video autoplay muted playsinline loop>
@@ -177,8 +219,8 @@
           </div>
         </div>
 
-        <div class="ablation-group">
-          <h3 class="ablation-subtitle">case-2</h4>
+        <div class="case-wrapper">
+          <div class="case-label">case-2</div>
           <div class="ablation-videos three-videos">
             <div class="video-item">
               <video autoplay muted playsinline loop>
@@ -201,8 +243,8 @@
           </div>
         </div>
 
-        <div class="ablation-group">
-          <h3 class="ablation-subtitle">case-3</h4>
+        <div class="case-wrapper">
+          <div class="case-label">case-3</div>
           <div class="ablation-videos three-videos">
             <div class="video-item">
               <video autoplay muted playsinline loop>
@@ -223,6 +265,10 @@
               </video>
             </div>
           </div>
+        </div>
+        
+        <div class="ablation-description">
+          This ablation demonstrates the effectiveness of our viewpoint-adaptive scene guided fusion module, which enhances the visual quality under novel camera viewpoints.
         </div>
       </section>
     </main>
