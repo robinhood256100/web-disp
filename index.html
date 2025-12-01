@@ -15,7 +15,7 @@
       }
     };
   </script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js      " async></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js       " async></script>
   
   <style>
     :root{
@@ -210,7 +210,7 @@
 
     /* 新增：大幅缩小case间距 */
     .comparison-section .case-wrapper {
-      margin-bottom: 0; /* 改为0 */
+      margin-bottom: -10px; /* 使用负值大幅压缩 */
     }
 
     /* 新增：为比较案例包装器添加flex-wrap */
@@ -222,13 +222,19 @@
     .video-labels {
       flex-basis: 100%; /* 占满整行，强制换行 */
       margin-left: 32px; /* 从80px减少到32px，向左平移约4个字符 */
-      margin-top: -2px; /* 使用负值紧贴视频 */
+      margin-top: -5px; /* 更紧贴视频 */
+      margin-bottom: -5px; /* 减少下方间距 */
       color: var(--muted);
       font-size: 12px;
       font-weight: 500;
       display: flex;
       justify-content: space-around;
       line-height: 1; /* 最小化行高 */
+    }
+
+    /* 新增：特定标签额外左移 */
+    .video-labels .shift-left {
+      margin-left: -36px; /* 额外向左平移约3个字符 */
     }
 
     /* 新增：全局描述文字样式 */
@@ -239,6 +245,11 @@
       line-height: 1.6;
       margin-top: 20px;
       margin-bottom: 40px;
+    }
+
+    /* 新增：More result部分样式 */
+    .more-result-section {
+      margin-top: 50px;
     }
 
     footer{margin-top:22px;color:var(--muted);font-size:13px;text-align:center}
@@ -283,7 +294,7 @@
       <div class="authors">Deyin Liu · Jicheng Xu · Lin Yuanbo Wu · Xiaowei Zhao · Xiatian Zhu · Anjan Dutta · Zhe Jin</div>
       <div class="links-row">
         <a class="btn-black" href="#" target="_blank" rel="noopener">arXiv</a>
-        <a class="btn-black" href="https://github.com/robinhood256100/web-disp                  " target="_blank" rel="noopener">GitHub(Comming soon)</a>
+        <a class="btn-black" href="https://github.com/robinhood256100/web-disp                    " target="_blank" rel="noopener">GitHub(Comming soon)</a>
       </div>
     </header>
 
@@ -515,9 +526,9 @@
             <span>Mimic-motion</span>
             <span>Champ</span>
             <span>Realis-Dance</span>
-            <span>Realis-Motion</span>
-            <span>Uni3C</span>
-            <span>Ours</span>
+            <span class="shift-left">Realis-Motion</span>
+            <span class="shift-left">Uni3C</span>
+            <span class="shift-left">Ours</span>
           </div>
         </div>
         
@@ -525,6 +536,11 @@
         <div class="comparison-description">
           Qualitative comparison of our method and baselines. The results of our method demonstrate coherent and natural human motion that maintains good physical consistency with the scene.
         </div>
+      </section>
+
+      <!-- 新增 More result 部分 -->
+      <section class="more-result-section">
+        <h2 class="ablation-title">More result</h2>
       </section>
     </main>
 
