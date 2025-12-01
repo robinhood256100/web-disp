@@ -5,6 +5,18 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>3D Scene-Adaptive Trajectory-Controllable Human Image Animation with Camera Movement</title>
   <meta name="description" content="Demo page for 3D Scene-Adaptive Trajectory-Controllable Human Image Animation with Camera Movement">
+  
+  <!-- 添加 MathJax 支持 -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+  
   <style>
     :root{
       --bg: #ffffff;
@@ -36,7 +48,7 @@
       font-size: 28px;
       color: #000000;
       margin-bottom: 20px;
-      text-align: center;
+      text-align: left; /* 左对齐 */
     }
     .method-image {
       display: flex;
@@ -60,7 +72,12 @@
 
     /* 新增样式 */
     .ablation-section{margin-top:40px}
-    .ablation-title{font-size:28px; color:#000000; margin-bottom:10px; text-align:center}
+    .ablation-title{
+      font-size:28px; 
+      color:#000000; 
+      margin-bottom:10px; 
+      text-align:left; /* 左对齐 */
+    }
     
     /* Grid 部分的描述文字样式 - 改为两端对齐 */
     .section-description{
@@ -201,6 +218,11 @@
         </div>
       </section>
 
+      <!-- Grid 部分的描述文字（紧接在视频/图片网格下方） -->
+      <div class="section-description">
+        3STC-HIA is an inference-time guidance-based human image animation method that generates scene-adaptive, trajectory-controllable human motion videos with camera movement. Given a reference image, target actions, a human motion trajectory, and a camera trajectory, the method enables human motion retargeting with ground-adaptive trajectory control, while enhancing effect of camera movement through point-cloud-based scene visibility analysis. In the top row, a subject is shown running on flat terrain along motion trajectory 1, captured from varying viewpoints defined by the camera trajectory. In contrast, the bottom row illustrates the same running action performed on a sloped surface along motion trajectory 2 under the same camera views, where the character automatically adjusts its altitude and body orientation to adapt to the scene's geometry.
+      </div>
+
       <!-- Method 部分 -->
       <section class="method-section">
         <h2 class="method-title">Method</h2>
@@ -211,11 +233,6 @@
           <strong>The pipeline of our 3STC-HIA.</strong> We first align the target action sequence ${\mathbf{V}n}{n=1}^N$ with the reconstructed point cloud of the reference image $I^{\mathrm{ref}}$ in the world-coordinate space. The subject in $I^{\mathrm{ref}}$ (e.g., the person) is then animated to follow the user-defined 2D motion trajectory $T_{2D}$ while adapting to the varying elevation of the scene ground. During the subsequent generation stage, at each diffusion timestep, the predicted latents are fused with the noisy latents using guidance from the viewpoint-adaptive visible scene point cloud. This is achieved through a scene-visibility mask, which enhances camera control along the specified trajectory $\mathcal{C}$.
         </div>
       </section>
-
-      <!-- Grid 部分的描述文字 -->
-      <div class="section-description">
-        3STC-HIA is an inference-time guidance-based human image animation method that generates scene-adaptive, trajectory-controllable human motion videos with camera movement. Given a reference image, target actions, a human motion trajectory, and a camera trajectory, the method enables human motion retargeting with ground-adaptive trajectory control, while enhancing effect of camera movement through point-cloud-based scene visibility analysis. In the top row, a subject is shown running on flat terrain along motion trajectory 1, captured from varying viewpoints defined by the camera trajectory. In contrast, the bottom row illustrates the same running action performed on a sloped surface along motion trajectory 2 under the same camera views, where the character automatically adjusts its altitude and body orientation to adapt to the scene's geometry.
-      </div>
 
       <!-- 新增 Ablation 部分 -->
       <section class="ablation-section">
