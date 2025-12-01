@@ -32,18 +32,30 @@
     .ablation-title{font-size:28px; color:#000000; margin-bottom:20px; text-align:center}
     .ablation-group{margin-bottom:30px}
     .ablation-subtitle{font-size:20px; color:#3a8fdc; margin:20px 0 10px 0; text-align:center}
-    .ablation-videos{display:flex; justify-content:center; gap:10px; flex-wrap:wrap}
-    .ablation-videos .video-item{flex:0 1 200px}
+    
+    /* Ablation视频容器 - 增大尺寸 */
+    .ablation-videos{display:flex; justify-content:center; align-items:center; gap:10px; flex-wrap:wrap}
+    .ablation-videos .video-item{flex:0 1 300px; min-width:0} /* 增大到300px */
     .ablation-videos .video-item video{width:100%; border-radius:6px}
-    .video-pair{display:flex; gap:5px}
-    .video-pair .video-item{flex:1}
+    
+    /* 四个视频的特殊布局 - 在一行显示并分组 */
+    .ablation-videos.four-videos{flex-wrap:nowrap; gap:8px}
+    .ablation-videos.four-videos .video-item{flex:0 1 220px} /* 四个视频时稍小一点 */
+    /* 在第二和第三个视频之间增加大间距，实现分组效果 */
+    .ablation-videos.four-videos .video-item:nth-child(2){margin-right:25px}
+    
+    /* 三个视频的布局 - 可以更大 */
+    .ablation-videos.three-videos .video-item{flex:0 1 320px}
 
     footer{margin-top:22px;color:var(--muted);font-size:13px;text-align:center}
 
     @media (max-width:800px){
       .grid{grid-template-columns:1fr}
       .ablation-videos{flex-direction:column; align-items:center}
-      .video-pair{width:100%; max-width:400px}
+      .ablation-videos .video-item{width:100%; max-width:400px}
+      /* 移除四个视频布局的特殊间距 */
+      .ablation-videos.four-videos{flex-wrap:wrap}
+      .ablation-videos.four-videos .video-item:nth-child(2){margin-right:0}
     }
   </style>
 </head>
@@ -81,68 +93,60 @@
         
         <div class="ablation-group">
           <h3 class="ablation-subtitle">ab0-1</h3>
-          <div class="ablation-videos">
-            <div class="video-pair">
-              <div class="video-item">
-                <video autoplay muted playsinline loop>
-                  <source src="web-video/ab0-1/c2.mp4" type="video/mp4">
-                  Your browser does not support the video tag.
-                </video>
-              </div>
-              <div class="video-item">
-                <video autoplay muted playsinline loop>
-                  <source src="web-video/ab0-1/result2.mp4" type="video/mp4">
-                  Your browser does not support the video tag.
-                </video>
-              </div>
+          <div class="ablation-videos four-videos">
+            <div class="video-item">
+              <video autoplay muted playsinline loop>
+                <source src="web-video/ab0-1/c2.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
             </div>
-            <div class="video-pair">
-              <div class="video-item">
-                <video autoplay muted playsinline loop>
-                  <source src="web-video/ab0-1/c1.mp4" type="video/mp4">
-                  Your browser does not support the video tag.
-                </video>
-              </div>
-              <div class="video-item">
-                <video autoplay muted playsinline loop>
-                  <source src="web-video/ab0-1/result1.mp4" type="video/mp4">
-                  Your browser does not support the video tag.
-                </video>
-              </div>
+            <div class="video-item">
+              <video autoplay muted playsinline loop>
+                <source src="web-video/ab0-1/result2.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div class="video-item">
+              <video autoplay muted playsinline loop>
+                <source src="web-video/ab0-1/c1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div class="video-item">
+              <video autoplay muted playsinline loop>
+                <source src="web-video/ab0-1/result1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
             </div>
           </div>
         </div>
 
         <div class="ablation-group">
           <h3 class="ablation-subtitle">ab0-2</h3>
-          <div class="ablation-videos">
-            <div class="video-pair">
-              <div class="video-item">
-                <video autoplay muted playsinline loop>
-                  <source src="web-video/ab0-2/c2.mp4" type="video/mp4">
-                  Your browser does not support the video tag.
-                </video>
-              </div>
-              <div class="video-item">
-                <video autoplay muted playsinline loop>
-                  <source src="web-video/ab0-2/result2.mp4" type="video/mp4">
-                  Your browser does not support the video tag.
-                </video>
-              </div>
+          <div class="ablation-videos four-videos">
+            <div class="video-item">
+              <video autoplay muted playsinline loop>
+                <source src="web-video/ab0-2/c2.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
             </div>
-            <div class="video-pair">
-              <div class="video-item">
-                <video autoplay muted playsinline loop>
-                  <source src="web-video/ab0-2/c1.mp4" type="video/mp4">
-                  Your browser does not support the video tag.
-                </video>
-              </div>
-              <div class="video-item">
-                <video autoplay muted playsinline loop>
-                  <source src="web-video/ab0-2/result1.mp4" type="video/mp4">
-                  Your browser does not support the video tag.
-                </video>
-              </div>
+            <div class="video-item">
+              <video autoplay muted playsinline loop>
+                <source src="web-video/ab0-2/result2.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div class="video-item">
+              <video autoplay muted playsinline loop>
+                <source src="web-video/ab0-2/c1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div class="video-item">
+              <video autoplay muted playsinline loop>
+                <source src="web-video/ab0-2/result1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
             </div>
           </div>
         </div>
@@ -151,7 +155,7 @@
         
         <div class="ablation-group">
           <h3 class="ablation-subtitle">ab1-1</h3>
-          <div class="ablation-videos">
+          <div class="ablation-videos three-videos">
             <div class="video-item">
               <video autoplay muted playsinline loop>
                 <source src="web-video/ab1-1/c.mp4" type="video/mp4">
@@ -175,7 +179,7 @@
 
         <div class="ablation-group">
           <h3 class="ablation-subtitle">ab1-2</h3>
-          <div class="ablation-videos">
+          <div class="ablation-videos three-videos">
             <div class="video-item">
               <video autoplay muted playsinline loop>
                 <source src="web-video/ab1-2/c.mp4" type="video/mp4">
@@ -199,7 +203,7 @@
 
         <div class="ablation-group">
           <h3 class="ablation-subtitle">ab1-3</h3>
-          <div class="ablation-videos">
+          <div class="ablation-videos three-videos">
             <div class="video-item">
               <video autoplay muted playsinline loop>
                 <source src="web-video/ab1-3/c.mp4" type="video/mp4">
