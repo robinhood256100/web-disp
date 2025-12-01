@@ -16,7 +16,7 @@
     *{box-sizing:border-box}
     html,body{height:100%}
     body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial; margin:0;background:var(--bg);color:var(--text); text-align:center}
-    .wrap{max-width:1100px;margin:0 auto;padding:28px}
+    .wrap{max-width:1200px;margin:0 auto;padding:28px}
     header{margin-bottom:28px}
     h1{margin:0;font-size:36px;line-height:1.2; color: #000000}
     .authors{margin-top:12px;color:#3a8fdc;font-size:18px;line-height:1.4}
@@ -66,7 +66,7 @@
       min-width:0;
     }
     
-    /* 第二个消融实验：保持原有样式，不做任何修改 */
+    /* 第二个消融实验：三个视频 - 保持原有样式，完全不受任何影响 */
     .ablation-videos.three-videos .video-item video{
       max-width:320px;
       height:auto;
@@ -74,9 +74,9 @@
       display:block;
     }
     
-    /* 第一个消融实验：为视频容器设置统一高度 */
+    /* 第一个消融实验：四个视频 - 所有视频统一高度180px */
     .ablation-videos.four-videos .video-item{
-      height:180px; /* 统一高度 */
+      height:180px; /* 统一容器高度 */
       display:flex;
       align-items:center;
       justify-content:center;
@@ -88,7 +88,7 @@
       max-width:220px; /* 限制最大宽度 */
       border-radius:6px;
       display:block;
-      object-fit:contain; /* 确保完整显示 */
+      object-fit:contain;
     }
     
     /* 第一个消融实验：在第二和第三个视频之间添加间距 */
