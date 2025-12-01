@@ -15,7 +15,7 @@
       }
     };
   </script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js       " async></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
   
   <style>
     :root{
@@ -52,8 +52,8 @@
       height: auto;
     }
 
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;align-items:center} /* 改为center */
-    .video-card{background:transparent;border-radius:8px;overflow:hidden;display:flex;align-items:center;justify-content:center} /* 添加flex居中 */
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;align-items:center}
+    .video-card{background:transparent;border-radius:8px;overflow:hidden;display:flex;align-items:center;justify-content:center}
     .video-card video,.video-card img{width:100%;height:100%;display:block;object-fit:cover;border-radius:6px}
 
     /* Abstract 部分样式 */
@@ -65,14 +65,14 @@
       font-size: 28px;
       color: #000000;
       margin-bottom: 15px;
-      text-align: left; /* 左对齐 */
+      text-align: left;
     }
     .abstract-description {
-      text-align: justify; /* 两端对齐 */
+      text-align: justify;
       color: var(--muted);
       font-size: 14px;
       line-height: 1.6;
-      max-width: 100%; /* 与视频/图片网格对齐 */
+      max-width: 100%;
     }
 
     /* Method 部分样式 */
@@ -84,7 +84,7 @@
       font-size: 28px;
       color: #000000;
       margin-bottom: 15px;
-      text-align: left; /* 左对齐 */
+      text-align: left;
     }
     .method-image {
       display: flex;
@@ -97,11 +97,11 @@
       border-radius: 8px;
     }
     .method-description {
-      text-align: justify; /* 两端对齐 */
+      text-align: justify;
       color: var(--muted);
       font-size: 14px;
       line-height: 1.6;
-      max-width: 100%; /* 与视频/图片网格对齐 */
+      max-width: 100%;
     }
 
     /* 新增样式 */
@@ -110,29 +110,29 @@
       font-size:28px; 
       color:#000000; 
       margin-bottom:10px; 
-      text-align:left; /* 左对齐 */
+      text-align:left;
     }
     
-    /* Grid 部分的描述文字样式 - 改为两端对齐 */
+    /* Grid 部分的描述文字样式 */
     .section-description{
-      text-align: justify; /* 两端对齐 */
+      text-align: justify;
       color:var(--muted);
       font-size:14px;
       margin-top:20px;
-      margin-bottom:30px; /* 与Abstract部分保持距离 */
+      margin-bottom:30px;
       line-height:1.6;
-      max-width: 100%; /* 与视频/图片网格对齐 */
+      max-width: 100%;
     }
     
-    /* 案例包装器 - 进一步减小行间距 */
+    /* 案例包装器 */
     .case-wrapper{display:flex; align-items:center; gap:15px; margin-bottom:10px}
     
-    /* 仅第一个消融实验的案例包装器（减小行距） */
+    /* 仅第一个消融实验的案例包装器 */
     .case-wrapper-ablation1 {
-      margin-bottom: 2px; /* 调整为2px */
+      margin-bottom: 2px;
     }
     
-    /* 竖直案例标签 - 旋转180度，字体更小，无边框 */
+    /* 竖直案例标签 */
     .case-label{
       writing-mode: vertical-rl;
       text-orientation: mixed;
@@ -148,7 +148,7 @@
       flex-shrink:0;
     }
     
-    /* Ablation视频容器 - 确保不换行 */
+    /* Ablation视频容器 */
     .ablation-videos{
       display:flex;
       justify-content:center;
@@ -158,7 +158,7 @@
       flex:1;
     }
     
-    /* video元素 - 统一高度 */
+    /* video元素 */
     .ablation-videos .video-item{
       flex:0 0 auto;
       min-width:0;
@@ -170,7 +170,7 @@
       display:block;
     }
     
-    /* 四个视频的特殊布局 - Ablation1 保持240px宽度 */
+    /* 四个视频的特殊布局 */
     .ablation-videos.four-videos .video-item video{
       max-width:240px;
     }
@@ -178,20 +178,20 @@
       margin-right:20px;
     }
     
-    /* 三个视频的布局 - Ablation2 改回320px宽度 */
+    /* 三个视频的布局 */
     .ablation-videos.three-videos .video-item video{
       max-width:320px;
     }
 
-    /* 消融实验描述文字样式 - 改为两端对齐 */
+    /* 消融实验描述文字样式 */
     .ablation-description{
-      text-align: justify; /* 两端对齐 */
+      text-align: justify;
       color:var(--muted);
       font-size:14px;
       margin-top:10px;
       margin-bottom:40px;
       line-height:1.6;
-      max-width:100%; /* 与视频/图片网格对齐 */
+      max-width:100%;
     }
 
     /* 新增：单视频比较布局样式 */
@@ -210,7 +210,7 @@
 
     /* 新增：大幅缩小case间距 */
     .comparison-section .case-wrapper {
-      margin-bottom: -10px; /* 使用负值大幅压缩 */
+      margin-bottom: -20px; /* 更激进的负值 */
     }
 
     /* 新增：为比较案例包装器添加flex-wrap */
@@ -218,23 +218,23 @@
       flex-wrap: wrap;
     }
 
-    /* 新增：视频标签说明样式 - 占满整行，紧贴视频 */
+    /* 新增：视频标签说明样式 */
     .video-labels {
-      flex-basis: 100%; /* 占满整行，强制换行 */
-      margin-left: 32px; /* 从80px减少到32px，向左平移约4个字符 */
-      margin-top: -5px; /* 更紧贴视频 */
-      margin-bottom: -5px; /* 减少下方间距 */
+      flex-basis: 100%;
+      margin-left: 32px;
+      margin-top: -15px; /* 更紧贴视频 */
+      margin-bottom: -15px; /* 减少下方间距 */
       color: var(--muted);
       font-size: 12px;
       font-weight: 500;
       display: flex;
       justify-content: space-around;
-      line-height: 1; /* 最小化行高 */
+      line-height: 0.8; /* 进一步压缩行高 */
     }
 
     /* 新增：特定标签额外左移 */
     .video-labels .shift-left {
-      margin-left: -36px; /* 额外向左平移约3个字符 */
+      margin-left: -48px; /* 向左平移4个字符（约48px） */
     }
 
     /* 新增：全局描述文字样式 */
@@ -270,7 +270,6 @@
         max-width:400px;
       }
       .ablation-videos.four-videos .video-item:nth-child(2){margin-right:0}
-      /* 移动端的比较视频样式 */
       .comparison-section .ablation-videos {
         flex-direction: column;
       }
@@ -294,7 +293,7 @@
       <div class="authors">Deyin Liu · Jicheng Xu · Lin Yuanbo Wu · Xiaowei Zhao · Xiatian Zhu · Anjan Dutta · Zhe Jin</div>
       <div class="links-row">
         <a class="btn-black" href="#" target="_blank" rel="noopener">arXiv</a>
-        <a class="btn-black" href="https://github.com/robinhood256100/web-disp                    " target="_blank" rel="noopener">GitHub(Comming soon)</a>
+        <a class="btn-black" href="https://github.com/robinhood256100/web-disp" target="_blank" rel="noopener">GitHub(Comming soon)</a>
       </div>
     </header>
 
@@ -524,8 +523,8 @@
           <div class="video-labels">
             <span>Motion</span>
             <span>Mimic-motion</span>
-            <span>Champ</span>
-            <span>Realis-Dance</span>
+            <span class="shift-left">Champ</span>
+            <span class="shift-left">Realis-Dance</span>
             <span class="shift-left">Realis-Motion</span>
             <span class="shift-left">Uni3C</span>
             <span class="shift-left">Ours</span>
