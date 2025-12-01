@@ -39,21 +39,40 @@
     .video-card{background:transparent;border-radius:8px;overflow:hidden;display:flex;align-items:center;justify-content:center} /* 添加flex居中 */
     .video-card video,.video-card img{width:100%;height:100%;display:block;object-fit:cover;border-radius:6px}
 
+    /* Abstract 部分样式 */
+    .abstract-section {
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
+    .abstract-title {
+      font-size: 28px;
+      color: #000000;
+      margin-bottom: 15px;
+      text-align: left; /* 左对齐 */
+    }
+    .abstract-description {
+      text-align: justify; /* 两端对齐 */
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+      max-width: 100%; /* 与视频/图片网格对齐 */
+    }
+
     /* Method 部分样式 */
     .method-section {
-      margin-top: 40px;
-      margin-bottom: 40px;
+      margin-top: 30px;
+      margin-bottom: 30px;
     }
     .method-title {
       font-size: 28px;
       color: #000000;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
       text-align: left; /* 左对齐 */
     }
     .method-image {
       display: flex;
       justify-content: center;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
     }
     .method-image img {
       max-width: 100%;
@@ -65,9 +84,7 @@
       color: var(--muted);
       font-size: 14px;
       line-height: 1.6;
-      max-width: 900px;
-      margin-left: auto;
-      margin-right: auto;
+      max-width: 100%; /* 与视频/图片网格对齐 */
     }
 
     /* 新增样式 */
@@ -85,11 +102,9 @@
       color:var(--muted);
       font-size:14px;
       margin-top:20px;
-      margin-bottom:30px; /* 与消融实验部分保持距离 */
+      margin-bottom:30px; /* 与Abstract部分保持距离 */
       line-height:1.6;
-      max-width:900px;
-      margin-left:auto;
-      margin-right:auto;
+      max-width: 100%; /* 与视频/图片网格对齐 */
     }
     
     /* 案例包装器 - 进一步减小行间距 */
@@ -192,7 +207,7 @@
       <div class="authors">Deyin Liu · Jicheng Xu · Lin Yuanbo Wu · Xiaowei Zhao · Xiatian Zhu · Anjan Dutta · Zhe Jin</div>
       <div class="links-row">
         <a class="btn-black" href="#" target="_blank" rel="noopener">arXiv</a>
-        <a class="btn-black" href="https://github.com/robinhood256100/web-disp        " target="_blank" rel="noopener">GitHub</a>
+        <a class="btn-black" href="https://github.com/robinhood256100/web-disp         " target="_blank" rel="noopener">GitHub</a>
       </div>
     </header>
 
@@ -222,6 +237,14 @@
       <div class="section-description">
         3STC-HIA is an inference-time guidance-based human image animation method that generates scene-adaptive, trajectory-controllable human motion videos with camera movement. Given a reference image, target actions, a human motion trajectory, and a camera trajectory, the method enables human motion retargeting with ground-adaptive trajectory control, while enhancing effect of camera movement through point-cloud-based scene visibility analysis. In the top row, a subject is shown running on flat terrain along motion trajectory 1, captured from varying viewpoints defined by the camera trajectory. In contrast, the bottom row illustrates the same running action performed on a sloped surface along motion trajectory 2 under the same camera views, where the character automatically adjusts its altitude and body orientation to adapt to the scene's geometry.
       </div>
+
+      <!-- Abstract 部分 -->
+      <section class="abstract-section">
+        <h2 class="abstract-title">Abstract</h2>
+        <div class="abstract-description">
+          Human image animation, which aims to generate a video of a certain reference subject following a provided action sequence, has received extensive research interest. As diffusion-based video foundation models develop, existing animation works have began to upgrade the guidance information from 2D skeleton/pose to 3D modeling conditions. Despite achieving reasonable results, these approaches face challenges in synthesizing trajectory-controllable human motion within natural scene under changed camera views. In this work, we present a scene-adaptive human image animation framework that controls both human motion and camera trajectories within a reconstructed 3D environment for video generation. To achieve this, we first develop a ground-adaptive 3D motion retargeting approach to enable user-friendly motion trajectory control adapting to the changes of elevations of ground and orientations automatically. Then we design a viewpoint-adaptive latent fusion mechanism to inject point-cloud geometric priors through scene-visibility masking, providing precise guidance for viewpoint changes under camera control. Experiments on two standard human image animation benchmark datasets demonstrate remarkable improvements of our method over the state of the arts in related video generation metics.
+        </div>
+      </section>
 
       <!-- Method 部分 -->
       <section class="method-section">
