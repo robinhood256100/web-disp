@@ -166,17 +166,15 @@
       max-width:320px;
     }
 
-    /* 描述文字样式 */
+    /* 消融实验描述文字样式 - 改为两端对齐 */
     .ablation-description{
-      text-align:center;
+      text-align: justify; /* 两端对齐 */
       color:var(--muted);
       font-size:14px;
       margin-top:10px;
       margin-bottom:40px;
       line-height:1.6;
-      max-width:900px;
-      margin-left:auto;
-      margin-right:auto;
+      max-width:100%; /* 与视频/图片网格对齐 */
     }
 
     footer{margin-top:22px;color:var(--muted);font-size:13px;text-align:center}
@@ -207,7 +205,7 @@
       <div class="authors">Deyin Liu · Jicheng Xu · Lin Yuanbo Wu · Xiaowei Zhao · Xiatian Zhu · Anjan Dutta · Zhe Jin</div>
       <div class="links-row">
         <a class="btn-black" href="#" target="_blank" rel="noopener">arXiv</a>
-        <a class="btn-black" href="https://github.com/robinhood256100/web-disp         " target="_blank" rel="noopener">GitHub</a>
+        <a class="btn-black" href="https://github.com/robinhood256100/web-disp           " target="_blank" rel="noopener">GitHub</a>
       </div>
     </header>
 
@@ -416,3 +414,4 @@
   <!-- No JS needed for autoplay display -->
 </body>
 </html>
+
