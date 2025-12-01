@@ -15,7 +15,7 @@
       }
     };
   </script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js   " async></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js    " async></script>
   
   <style>
     :root{
@@ -208,6 +208,32 @@
       max-height: 450px;
     }
 
+    /* 新增：大幅缩小case间距 */
+    .comparison-section .case-wrapper {
+      margin-bottom: 2px; /* 大幅缩小间距 */
+    }
+
+    /* 新增：视频标签说明样式 */
+    .video-labels {
+      display: flex;
+      justify-content: space-around;
+      margin-left: 80px; /* 与视频左对齐，考虑标签宽度 */
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    /* 新增：全局描述文字样式 */
+    .comparison-description {
+      text-align: justify;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+      margin-top: 20px;
+      margin-bottom: 40px;
+    }
+
     footer{margin-top:22px;color:var(--muted);font-size:13px;text-align:center}
 
     @media (max-width:800px){
@@ -230,6 +256,12 @@
       .comparison-section .ablation-videos {
         flex-direction: column;
       }
+      .video-labels {
+        margin-left: 0;
+        flex-wrap: wrap;
+        font-size: 10px;
+        gap: 5px;
+      }
     }
   </style>
 </head>
@@ -244,7 +276,7 @@
       <div class="authors">Deyin Liu · Jicheng Xu · Lin Yuanbo Wu · Xiaowei Zhao · Xiatian Zhu · Anjan Dutta · Zhe Jin</div>
       <div class="links-row">
         <a class="btn-black" href="#" target="_blank" rel="noopener">arXiv</a>
-        <a class="btn-black" href="https://github.com/robinhood256100/web-disp             " target="_blank" rel="noopener">GitHub(Comming soon)</a>
+        <a class="btn-black" href="https://github.com/robinhood256100/web-disp              " target="_blank" rel="noopener">GitHub(Comming soon)</a>
       </div>
     </header>
 
@@ -448,8 +480,8 @@
       <section class="comparison-section">
         <h2 class="ablation-title">Qualitative Comparison</h2>
         
-        <div class="case-wrapper">
-          <div class="case-label">Sequence 1</div>
+        <div class="case-wrapper comparison-case">
+          <div class="case-label">case 1</div>
           <div class="ablation-videos">
             <div class="video-item">
               <video autoplay muted playsinline loop>
@@ -460,8 +492,8 @@
           </div>
         </div>
 
-        <div class="case-wrapper">
-          <div class="case-label">Sequence 2</div>
+        <div class="case-wrapper comparison-case">
+          <div class="case-label">case 2</div>
           <div class="ablation-videos">
             <div class="video-item">
               <video autoplay muted playsinline loop>
@@ -470,6 +502,21 @@
               </video>
             </div>
           </div>
+          <!-- 新增：视频标签说明 -->
+          <div class="video-labels">
+            <span>Motion</span>
+            <span>Mimic-motion</span>
+            <span>Champ</span>
+            <span>Realis-Dance</span>
+            <span>Realis-Motion</span>
+            <span>Uni3C</span>
+            <span>Ours</span>
+          </div>
+        </div>
+        
+        <!-- 新增：全局描述文字 -->
+        <div class="comparison-description">
+          Qualitative comparison of our method and baselines. The results of our method demonstrate coherent and natural human motion that maintains good physical consistency with the scene.
         </div>
       </section>
     </main>
