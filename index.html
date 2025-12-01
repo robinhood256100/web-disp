@@ -34,36 +34,36 @@
     /* 案例包装器 - 水平布局 */
     .case-wrapper{display:flex; align-items:center; gap:15px; margin-bottom:25px}
     
-    /* 竖直案例标签 */
+    /* 竖直案例标签 - 旋转180度，字体更小，无边框 */
     .case-label{
       writing-mode: vertical-rl;  /* 竖排文字 */
       text-orientation: mixed;    /* 文字方向 */
+      transform: rotate(180deg);  /* 旋转180度 */
       color:#3a8fdc;
-      font-size:20px;
+      font-size:16px;            /* 字体更小 */
       font-weight:bold;
-      height:220px;               /* 设置高度使文字垂直居中 */
+      height:240px;              /* 设置高度使文字垂直居中 */
       display:flex;
       align-items:center;
       justify-content:center;
-      padding:0 5px;
+      padding:0 3px;
       flex-shrink:0;
-      border: 1px solid #e0e0e0; /* 添加边框让标签更明显 */
-      border-radius: 4px;
+      /* 移除边框 */
     }
     
-    /* Ablation视频容器 */
+    /* Ablation视频容器 - 增大尺寸 */
     .ablation-videos{display:flex; justify-content:center; align-items:center; gap:8px; flex-wrap:wrap; flex:1}
-    .ablation-videos .video-item{flex:0 1 280px; min-width:0}
+    .ablation-videos .video-item{flex:0 1 340px; min-width:0}  /* 增大视频尺寸 */
     .ablation-videos .video-item video{width:100%; border-radius:6px}
     
-    /* 四个视频的特殊布局 - 在一行显示 */
+    /* 四个视频的特殊布局 - 在一行显示，增大尺寸 */
     .ablation-videos.four-videos{flex-wrap:nowrap}
-    .ablation-videos.four-videos .video-item{flex:0 1 200px}
+    .ablation-videos.four-videos .video-item{flex:0 1 240px}  /* 增大四个视频时的尺寸 */
     /* 在第二和第三个视频之间增加大间距，实现分组效果 */
     .ablation-videos.four-videos .video-item:nth-child(2){margin-right:20px}
     
-    /* 三个视频的布局 */
-    .ablation-videos.three-videos .video-item{flex:0 1 300px}
+    /* 三个视频的布局 - 增大尺寸 */
+    .ablation-videos.three-videos .video-item{flex:0 1 360px}  /* 增大三个视频时的尺寸 */
 
     /* 描述文字样式 */
     .ablation-description{
@@ -85,10 +85,9 @@
       .case-wrapper{flex-direction:column; align-items:center}
       .case-label{
         writing-mode: horizontal-tb;  /* 移动端恢复横排 */
+        transform: none;              /* 移除旋转 */
         height:auto;
         margin-bottom:10px;
-        height: auto;
-        border: none;
       }
       .ablation-videos{flex-direction:column; align-items:center}
       .ablation-videos .video-item{width:100%; max-width:400px}
