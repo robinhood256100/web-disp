@@ -15,7 +15,7 @@
       }
     };
   </script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js " async></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js   " async></script>
   
   <style>
     :root{
@@ -194,6 +194,20 @@
       max-width:100%; /* 与视频/图片网格对齐 */
     }
 
+    /* 新增：单视频比较布局样式 */
+    .comparison-section {
+      margin-top: 40px;
+    }
+    .comparison-section .ablation-videos {
+      flex-direction: column;
+      gap: 20px;
+    }
+    .comparison-section .video-item video {
+      max-width: 100%;
+      height: auto;
+      max-height: 450px;
+    }
+
     footer{margin-top:22px;color:var(--muted);font-size:13px;text-align:center}
 
     @media (max-width:800px){
@@ -212,6 +226,10 @@
         max-width:400px;
       }
       .ablation-videos.four-videos .video-item:nth-child(2){margin-right:0}
+      /* 移动端的比较视频样式 */
+      .comparison-section .ablation-videos {
+        flex-direction: column;
+      }
     }
   </style>
 </head>
@@ -226,7 +244,7 @@
       <div class="authors">Deyin Liu · Jicheng Xu · Lin Yuanbo Wu · Xiaowei Zhao · Xiatian Zhu · Anjan Dutta · Zhe Jin</div>
       <div class="links-row">
         <a class="btn-black" href="#" target="_blank" rel="noopener">arXiv</a>
-        <a class="btn-black" href="https://github.com/robinhood256100/web-disp           " target="_blank" rel="noopener">GitHub(Comming soon)</a>
+        <a class="btn-black" href="https://github.com/robinhood256100/web-disp             " target="_blank" rel="noopener">GitHub(Comming soon)</a>
       </div>
     </header>
 
@@ -423,6 +441,35 @@
         
         <div class="ablation-description">
             When the camera pulls back to follow a forward-moving character, our method preserves correct background recession and perspective, avoiding first-frame dominance(case2,case3). Even under significant camera movement, it maintains smooth motion and physically consistent background(case1).
+        </div>
+      </section>
+
+      <!-- 新增 Qualitative Comparison 部分 -->
+      <section class="comparison-section">
+        <h2 class="ablation-title">Qualitative Comparison</h2>
+        
+        <div class="case-wrapper">
+          <div class="case-label">Sequence 1</div>
+          <div class="ablation-videos">
+            <div class="video-item">
+              <video autoplay muted playsinline loop>
+                <source src="web-video/s1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+        </div>
+
+        <div class="case-wrapper">
+          <div class="case-label">Sequence 2</div>
+          <div class="ablation-videos">
+            <div class="video-item">
+              <video autoplay muted playsinline loop>
+                <source src="web-video/s2.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
         </div>
       </section>
     </main>
