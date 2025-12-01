@@ -34,6 +34,11 @@
     /* 案例包装器 - 进一步减小行间距 */
     .case-wrapper{display:flex; align-items:center; gap:15px; margin-bottom:10px}
     
+    /* 仅第一个消融实验的案例包装器（减小行距） */
+    .case-wrapper-ablation1 {
+      margin-bottom: 5px; /* 调整为5px或更小 */
+    }
+    
     /* 竖直案例标签 - 旋转180度，字体更小，无边框 */
     .case-label{
       writing-mode: vertical-rl;
@@ -126,7 +131,7 @@
       <div class="authors">Deyin Liu · Jicheng Xu · Lin Yuanbo Wu · Xiaowei Zhao · Xiatian Zhu · Anjan Dutta · Zhe Jin</div>
       <div class="links-row">
         <a class="btn-black" href="#" target="_blank" rel="noopener">arXiv</a>
-        <a class="btn-black" href="https://github.com/robinhood256100/web-disp     " target="_blank" rel="noopener">GitHub</a>
+        <a class="btn-black" href="https://github.com/robinhood256100/web-disp      " target="_blank" rel="noopener">GitHub</a>
       </div>
     </header>
 
@@ -156,7 +161,8 @@
       <section class="ablation-section">
         <h2 class="ablation-title">Ablation on ground-adaptive 3D motion retargeting</h2>
         
-        <div class="case-wrapper">
+        <!-- 第一个消融实验的第一个案例，添加了 case-wrapper-ablation1 类 -->
+        <div class="case-wrapper case-wrapper-ablation1">
           <div class="case-label">case-1</div>
           <div class="ablation-videos four-videos">
             <div class="video-item">
@@ -186,7 +192,8 @@
           </div>
         </div>
 
-        <div class="case-wrapper">
+        <!-- 第一个消融实验的第二个案例，添加了 case-wrapper-ablation1 类 -->
+        <div class="case-wrapper case-wrapper-ablation1">
           <div class="case-label">case-2</div>
           <div class="ablation-videos four-videos">
             <div class="video-item">
@@ -222,6 +229,7 @@
 
         <h2 class="ablation-title">Ablation on viewpoint-adaptive scene guided fusion for camera control</h2>
         
+        <!-- 第二个消融实验的案例，保持原样 -->
         <div class="case-wrapper">
           <div class="case-label">case-1</div>
           <div class="ablation-videos three-videos">
