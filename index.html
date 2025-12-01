@@ -31,12 +31,25 @@
     .ablation-section{margin-top:40px}
     .ablation-title{font-size:28px; color:#000000; margin-bottom:10px; text-align:center}
     
+    /* Grid 部分的描述文字样式 */
+    .section-description{
+      text-align:center;
+      color:var(--muted);
+      font-size:14px;
+      margin-top:20px;
+      margin-bottom:30px; /* 与消融实验部分保持距离 */
+      line-height:1.6;
+      max-width:900px;
+      margin-left:auto;
+      margin-right:auto;
+    }
+    
     /* 案例包装器 - 进一步减小行间距 */
     .case-wrapper{display:flex; align-items:center; gap:15px; margin-bottom:10px}
     
     /* 仅第一个消融实验的案例包装器（减小行距） */
     .case-wrapper-ablation1 {
-      margin-bottom: 2px; /* 调整为5px或更小 */
+      margin-bottom: 2px; /* 调整为2px */
     }
     
     /* 竖直案例标签 - 旋转180度，字体更小，无边框 */
@@ -131,7 +144,7 @@
       <div class="authors">Deyin Liu · Jicheng Xu · Lin Yuanbo Wu · Xiaowei Zhao · Xiatian Zhu · Anjan Dutta · Zhe Jin</div>
       <div class="links-row">
         <a class="btn-black" href="#" target="_blank" rel="noopener">arXiv</a>
-        <a class="btn-black" href="https://github.com/robinhood256100/web-disp      " target="_blank" rel="noopener">GitHub</a>
+        <a class="btn-black" href="https://github.com/robinhood256100/web-disp       " target="_blank" rel="noopener">GitHub</a>
       </div>
     </header>
 
@@ -156,6 +169,11 @@
           </video>
         </div>
       </section>
+
+      <!-- Grid 部分的描述文字 -->
+      <div class="section-description">
+        We present a novel framework that enables 3D-aware human image animation with camera movement control. Our method combines scene-adaptive motion retargeting with viewpoint-guided fusion to generate realistic animations while maintaining temporal consistency and proper spatial relationships.
+      </div>
 
       <!-- 新增 Ablation 部分 -->
       <section class="ablation-section">
