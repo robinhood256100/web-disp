@@ -31,7 +31,7 @@
     .ablation-section{margin-top:40px}
     .ablation-title{font-size:28px; color:#000000; margin-bottom:10px; text-align:center}
     
-    /* 案例包装器 - 进一步减小行间距 */
+    /* 案例包装器 - 调整行间距 */
     .case-wrapper{display:flex; align-items:center; gap:15px; margin-bottom:10px}
     
     /* 竖直案例标签 - 旋转180度，字体更小，无边框 */
@@ -42,7 +42,7 @@
       color:#3a8fdc;
       font-size:16px;
       font-weight:bold;
-      height:240px;
+      height:220px;
       display:flex;
       align-items:center;
       justify-content:center;
@@ -60,29 +60,34 @@
       flex:1;
     }
     
-    /* video元素 - 统一高度 */
+    /* video元素容器 */
     .ablation-videos .video-item{
       flex:0 0 auto;
       min-width:0;
     }
-    .ablation-videos .video-item video{
-      height:180px;
-      width:auto;
+    
+    /* 第一个消融实验：所有视频统一高度和宽度 */
+    .ablation-videos.four-videos .video-item video{
+      height:180px;      /* 统一高度 */
+      width:auto;        /* 宽度自动保持比例 */
+      max-width:240px;   /* 限制最大宽度 */
       border-radius:6px;
       display:block;
+      object-fit:contain; /* 确保完整显示 */
     }
     
-    /* 四个视频的特殊布局 - Ablation1 保持240px宽度 */
-    .ablation-videos.four-videos .video-item video{
-      max-width:240px;
-    }
+    /* 第一个消融实验：在第二和第三个视频之间添加间距 */
     .ablation-videos.four-videos .video-item:nth-child(2){
       margin-right:20px;
     }
     
-    /* 三个视频的布局 - Ablation2 改回320px宽度 */
+    /* 第二个消融实验：保持原有尺寸 */
     .ablation-videos.three-videos .video-item video{
-      max-width:320px;
+      height:auto;       /* 高度自动 */
+      width:auto;        /* 宽度自动 */
+      max-width:280px;   /* 保持原宽度限制 */
+      border-radius:6px;
+      display:block;
     }
 
     /* 描述文字样式 */
@@ -126,7 +131,7 @@
       <div class="authors">Deyin Liu · Jicheng Xu · Lin Yuanbo Wu · Xiaowei Zhao · Xiatian Zhu · Anjan Dutta · Zhe Jin</div>
       <div class="links-row">
         <a class="btn-black" href="#" target="_blank" rel="noopener">arXiv</a>
-        <a class="btn-black" href="https://github.com/robinhood256100/web-disp  " target="_blank" rel="noopener">GitHub</a>
+        <a class="btn-black" href="https://github.com/robinhood256100/web-disp   " target="_blank" rel="noopener">GitHub</a>
       </div>
     </header>
 
