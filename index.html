@@ -16,7 +16,7 @@
     *{box-sizing:border-box}
     html,body{height:100%}
     body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial; margin:0;background:var(--bg);color:var(--text); text-align:center}
-    .wrap{max-width:1200px;margin:0 auto;padding:28px}
+    .wrap{max-width:1100px;margin:0 auto;padding:28px}
     header{margin-bottom:28px}
     h1{margin:0;font-size:36px;line-height:1.2; color: #000000}
     .authors{margin-top:12px;color:#3a8fdc;font-size:18px;line-height:1.4}
@@ -31,7 +31,7 @@
     .ablation-section{margin-top:40px}
     .ablation-title{font-size:28px; color:#000000; margin-bottom:10px; text-align:center}
     
-    /* 案例包装器 - 调整行间距 */
+    /* 案例包装器 - 进一步减小行间距 */
     .case-wrapper{display:flex; align-items:center; gap:15px; margin-bottom:10px}
     
     /* 竖直案例标签 - 旋转180度，字体更小，无边框 */
@@ -42,7 +42,7 @@
       color:#3a8fdc;
       font-size:16px;
       font-weight:bold;
-      height:220px;
+      height:240px;
       display:flex;
       align-items:center;
       justify-content:center;
@@ -50,7 +50,7 @@
       flex-shrink:0;
     }
     
-    /* Ablation视频容器 - 确保不换行并对齐 */
+    /* Ablation视频容器 - 确保不换行 */
     .ablation-videos{
       display:flex;
       justify-content:center;
@@ -60,35 +60,29 @@
       flex:1;
     }
     
-    /* video元素容器 */
+    /* video元素 - 统一高度 */
     .ablation-videos .video-item{
       flex:0 0 auto;
       min-width:0;
     }
-    
-    /* video元素 - 基础样式 */
     .ablation-videos .video-item video{
-      display:block;
+      height:180px;
+      width:auto;
       border-radius:6px;
+      display:block;
     }
     
-    /* 第一个消融实验：所有视频统一高度180px */
+    /* 四个视频的特殊布局 - Ablation1 保持240px宽度 */
     .ablation-videos.four-videos .video-item video{
-      height:180px;      /* 统一高度 */
-      width:auto;        /* 自动宽度保持比例 */
-      max-width:220px;   /* 限制最大宽度防止过大 */
-      object-fit:contain; /* 确保完整显示 */
+      max-width:240px;
     }
-    
-    /* 在第一个消融实验的第二个视频后添加间距 */
     .ablation-videos.four-videos .video-item:nth-child(2){
       margin-right:20px;
     }
     
-    /* 第二个消融实验：保持原有尺寸，不做任何修改 */
+    /* 三个视频的布局 - Ablation2 改回320px宽度 */
     .ablation-videos.three-videos .video-item video{
-      max-width:280px;   /* 保持原宽度 */
-      height:auto;       /* 自动高度保持原样 */
+      max-width:320px;
     }
 
     /* 描述文字样式 */
@@ -132,7 +126,7 @@
       <div class="authors">Deyin Liu · Jicheng Xu · Lin Yuanbo Wu · Xiaowei Zhao · Xiatian Zhu · Anjan Dutta · Zhe Jin</div>
       <div class="links-row">
         <a class="btn-black" href="#" target="_blank" rel="noopener">arXiv</a>
-        <a class="btn-black" href="https://github.com/robinhood256100/web-disp   " target="_blank" rel="noopener">GitHub</a>
+        <a class="btn-black" href="https://github.com/robinhood256100/web-disp  " target="_blank" rel="noopener">GitHub</a>
       </div>
     </header>
 
