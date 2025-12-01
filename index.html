@@ -15,7 +15,7 @@
       }
     };
   </script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js " async></script>
   
   <style>
     :root{
@@ -32,12 +32,17 @@
     header{margin-bottom:28px}
     h1{margin:0;font-size:36px;line-height:1.2; color: #000000}
     .authors{margin-top:12px;color:#3a8fdc;font-size:18px;line-height:1.4}
-    .links-row{margin-top:16px}
+    
+    /* 链接行样式 - 增加底部间距 */
+    .links-row{
+      margin-top:16px;
+      margin-bottom:40px; /* 增大与下方内容的间距 */
+    }
     .btn-black{display:inline-block;background:var(--accent);color:#fff;padding:8px 14px;border-radius:8px;text-decoration:none;font-size:14px;margin:0 6px}
 
-    /* 方法标识图标样式 */
+    /* 方法标识图标样式 - 移到标题上方 */
     .method-icon {
-      margin-top: 20px;
+      margin-bottom: 20px; /* 图标与标题之间的间距 */
       display: flex;
       justify-content: center;
       align-items: center;
@@ -213,15 +218,15 @@
 <body>
   <div class="wrap">
     <header>
+      <!-- 方法标识图标移到标题上方 -->
+      <div class="method-icon">
+        <img src="assets/images/i.png" alt="Method Icon">
+      </div>
       <h1>3D Scene-Adaptive Trajectory-Controllable<br>Human Image Animation with Camera Movement</h1>
       <div class="authors">Deyin Liu · Jicheng Xu · Lin Yuanbo Wu · Xiaowei Zhao · Xiatian Zhu · Anjan Dutta · Zhe Jin</div>
       <div class="links-row">
         <a class="btn-black" href="#" target="_blank" rel="noopener">arXiv</a>
         <a class="btn-black" href="https://github.com/robinhood256100/web-disp           " target="_blank" rel="noopener">GitHub</a>
-      </div>
-      <!-- 方法标识图标 -->
-      <div class="method-icon">
-        <img src="assets/images/i.png" alt="Method Icon">
       </div>
     </header>
 
