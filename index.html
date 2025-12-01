@@ -36,13 +36,13 @@
     
     /* 竖直案例标签 - 旋转180度，字体更小，无边框 */
     .case-label{
-      writing-mode: vertical-rl;
-      text-orientation: mixed;
-      transform: rotate(180deg);
+      writing-mode: vertical-rl;  /* 竖排文字 */
+      text-orientation: mixed;    /* 文字方向 */
+      transform: rotate(180deg);  /* 旋转180度 */
       color:#3a8fdc;
-      font-size:16px;
+      font-size:16px;            /* 字体更小 */
       font-weight:bold;
-      height:240px;
+      height:240px;              /* 设置高度使文字垂直居中 */
       display:flex;
       align-items:center;
       justify-content:center;
@@ -50,19 +50,37 @@
       flex-shrink:0;
     }
     
-    /* Ablation视频容器 */
+    /* Ablation视频容器 - 设置统一高度 */
     .ablation-videos{display:flex; justify-content:center; align-items:center; gap:8px; flex-wrap:wrap; flex:1}
-    .ablation-videos .video-item{min-width:0}
-    .ablation-videos .video-item video{width:100%; border-radius:6px}
+    .ablation-videos .video-item{
+      flex:0 1 auto;            /* 自动宽度 */
+      min-width:0;
+      height:240px;             /* 固定高度确保一致 */
+    }
+    .ablation-videos .video-item video{
+      width:auto;               /* 宽度自动 */
+      height:100%;              /* 高度100%填充容器 */
+      border-radius:6px;
+      object-fit:contain;       /* 使用contain确保视频完整显示 */
+    }
     
-    /* 四个视频的特殊布局 - Ablation1保持当前大小 */
+    /* 四个视频的特殊布局 - 在一行显示 */
     .ablation-videos.four-videos{flex-wrap:nowrap}
-    .ablation-videos.four-videos .video-item{flex:0 1 240px}
+    .ablation-videos.four-videos .video-item{
+      flex:0 1 180px;          /* 设置固定宽度比例 */
+      height:240px;
+    }
+    /* 在第二和第三个视频之间增加大间距，实现分组效果 */
     .ablation-videos.four-videos .video-item:nth-child(2){margin-right:20px}
     
-    /* 三个视频的布局 - Ablation2改回原来大小(320px)并确保在一行 */
-    .ablation-videos.three-videos{flex-wrap:nowrap}
-    .ablation-videos.three-videos .video-item{flex:0 1 320px}
+    /* 三个视频的布局 - 确保在一行 */
+    .ablation-videos.three-videos{
+      flex-wrap:nowrap;
+    }
+    .ablation-videos.three-videos .video-item{
+      flex:0 1 280px;          /* 设置固定宽度比例 */
+      height:240px;
+    }
 
     /* 描述文字样式 */
     .ablation-description{
@@ -83,13 +101,14 @@
       .grid{grid-template-columns:1fr}
       .case-wrapper{flex-direction:column; align-items:center}
       .case-label{
-        writing-mode: horizontal-tb;
-        transform: none;
+        writing-mode: horizontal-tb;  /* 移动端恢复横排 */
+        transform: none;              /* 移除旋转 */
         height:auto;
         margin-bottom:10px;
       }
       .ablation-videos{flex-direction:column; align-items:center}
-      .ablation-videos .video-item{width:100%; max-width:400px}
+      .ablation-videos .video-item{width:100%; max-width:400px; height:auto}
+      .ablation-videos .video-item video{width:100%; height:auto}
       .ablation-videos.four-videos{flex-wrap:wrap}
       .ablation-videos.four-videos .video-item:nth-child(2){margin-right:0}
       .ablation-videos.three-videos{flex-wrap:wrap}
@@ -210,7 +229,7 @@
               </video>
             </div>
             <div class="video-item">
-              <video autoplay muted playsinline loop>
+              <video autoply muted playsinline loop>
                 <source src="web-video/ab1-1/result1.mp4" type="video/mp4">
                 Your browser does not support the video tag.
               </video>
