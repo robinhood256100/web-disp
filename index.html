@@ -18,8 +18,8 @@
     body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial; margin:0;background:var(--bg);color:var(--text); text-align:center}
     .wrap{max-width:1100px;margin:0 auto;padding:28px}
     header{margin-bottom:28px}
-    h1{margin:0;font-size:36px;line-height:1.2; color: #000000} /* 标题更大且为黑色 */
-    .authors{margin-top:12px;color:#3a8fdc;font-size:18px;line-height:1.4} /* 作者为蓝色 */
+    h1{margin:0;font-size:36px;line-height:1.2; color: #000000}
+    .authors{margin-top:12px;color:#3a8fdc;font-size:18px;line-height:1.4}
     .links-row{margin-top:16px}
     .btn-black{display:inline-block;background:var(--accent);color:#fff;padding:8px 14px;border-radius:8px;text-decoration:none;font-size:14px;margin:0 6px}
 
@@ -31,39 +31,38 @@
     .ablation-section{margin-top:40px}
     .ablation-title{font-size:28px; color:#000000; margin-bottom:10px; text-align:center}
     
-    /* 案例包装器 - 水平布局 */
-    .case-wrapper{display:flex; align-items:center; gap:15px; margin-bottom:25px}
+    /* 案例包装器 - 减小行间距 */
+    .case-wrapper{display:flex; align-items:center; gap:15px; margin-bottom:15px}
     
     /* 竖直案例标签 - 旋转180度，字体更小，无边框 */
     .case-label{
-      writing-mode: vertical-rl;  /* 竖排文字 */
-      text-orientation: mixed;    /* 文字方向 */
-      transform: rotate(180deg);  /* 旋转180度 */
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      transform: rotate(180deg);
       color:#3a8fdc;
-      font-size:16px;            /* 字体更小 */
+      font-size:16px;
       font-weight:bold;
-      height:240px;              /* 设置高度使文字垂直居中 */
+      height:240px;
       display:flex;
       align-items:center;
       justify-content:center;
       padding:0 3px;
       flex-shrink:0;
-      /* 移除边框 */
     }
     
-    /* Ablation视频容器 - 增大尺寸 */
+    /* Ablation视频容器 */
     .ablation-videos{display:flex; justify-content:center; align-items:center; gap:8px; flex-wrap:wrap; flex:1}
-    .ablation-videos .video-item{flex:0 1 340px; min-width:0}  /* 增大视频尺寸 */
+    .ablation-videos .video-item{min-width:0}
     .ablation-videos .video-item video{width:100%; border-radius:6px}
     
-    /* 四个视频的特殊布局 - 在一行显示，增大尺寸 */
+    /* 四个视频的特殊布局 - Ablation1保持当前大小 */
     .ablation-videos.four-videos{flex-wrap:nowrap}
-    .ablation-videos.four-videos .video-item{flex:0 1 240px}  /* 增大四个视频时的尺寸 */
-    /* 在第二和第三个视频之间增加大间距，实现分组效果 */
+    .ablation-videos.four-videos .video-item{flex:0 1 240px}
     .ablation-videos.four-videos .video-item:nth-child(2){margin-right:20px}
     
-    /* 三个视频的布局 - 增大尺寸 */
-    .ablation-videos.three-videos .video-item{flex:0 1 360px}  /* 增大三个视频时的尺寸 */
+    /* 三个视频的布局 - Ablation2改回原来大小(320px)并确保在一行 */
+    .ablation-videos.three-videos{flex-wrap:nowrap}
+    .ablation-videos.three-videos .video-item{flex:0 1 320px}
 
     /* 描述文字样式 */
     .ablation-description{
@@ -84,8 +83,8 @@
       .grid{grid-template-columns:1fr}
       .case-wrapper{flex-direction:column; align-items:center}
       .case-label{
-        writing-mode: horizontal-tb;  /* 移动端恢复横排 */
-        transform: none;              /* 移除旋转 */
+        writing-mode: horizontal-tb;
+        transform: none;
         height:auto;
         margin-bottom:10px;
       }
@@ -93,6 +92,7 @@
       .ablation-videos .video-item{width:100%; max-width:400px}
       .ablation-videos.four-videos{flex-wrap:wrap}
       .ablation-videos.four-videos .video-item:nth-child(2){margin-right:0}
+      .ablation-videos.three-videos{flex-wrap:wrap}
     }
   </style>
 </head>
