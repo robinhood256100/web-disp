@@ -31,7 +31,7 @@
     .ablation-section{margin-top:40px}
     .ablation-title{font-size:28px; color:#000000; margin-bottom:10px; text-align:center}
     
-    /* 案例包装器 - 进一步减小行间距 */
+    /* 案例包装器 - 减小行间距 */
     .case-wrapper{display:flex; align-items:center; gap:15px; margin-bottom:10px}
     
     /* 竖直案例标签 - 旋转180度，字体更小，无边框 */
@@ -42,7 +42,7 @@
       color:#3a8fdc;
       font-size:16px;
       font-weight:bold;
-      height:240px;
+      height:220px;
       display:flex;
       align-items:center;
       justify-content:center;
@@ -60,29 +60,34 @@
       flex:1;
     }
     
-    /* video元素 - 统一高度 */
+    /* video元素容器 - 统一高度 */
     .ablation-videos .video-item{
       flex:0 0 auto;
       min-width:0;
+      height:180px;  /* 统一设置高度 */
     }
     .ablation-videos .video-item video{
-      height:180px;
+      height:100%;
       width:auto;
       border-radius:6px;
       display:block;
+      object-fit:contain;  /* 保持比例 */
     }
     
-    /* 四个视频的特殊布局 - Ablation1 保持240px宽度 */
+    /* 四个视频的特殊布局 - Ablation1 调整宽度 */
+    .ablation-videos.four-videos .video-item{
+      flex:0 0 auto;
+    }
     .ablation-videos.four-videos .video-item video{
-      max-width:240px;
+      max-width:200px;  /* 限制最大宽度防止重叠 */
     }
     .ablation-videos.four-videos .video-item:nth-child(2){
       margin-right:20px;
     }
     
-    /* 三个视频的布局 - Ablation2 改回320px宽度 */
+    /* 三个视频的布局 - Ablation2 保持原样 */
     .ablation-videos.three-videos .video-item video{
-      max-width:320px;
+      max-width:280px;
     }
 
     /* 描述文字样式 */
@@ -110,12 +115,18 @@
         margin-bottom:10px;
       }
       .ablation-videos{flex-direction:column; align-items:center; flex-wrap:wrap}
-      .ablation-videos .video-item video{
+      .ablation-videos .video-item{
         width:100%;
         height:auto;
         max-width:400px;
       }
+      .ablation-videos .video-item video{
+        width:100%;
+        height:auto;
+        max-width:100%;
+      }
       .ablation-videos.four-videos .video-item:nth-child(2){margin-right:0}
+      .ablation-videos.three-videos{flex-wrap:wrap}
     }
   </style>
 </head>
