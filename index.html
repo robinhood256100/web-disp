@@ -27,13 +27,44 @@
     .video-card{background:transparent;border-radius:8px;overflow:hidden;display:flex;align-items:center;justify-content:center} /* 添加flex居中 */
     .video-card video,.video-card img{width:100%;height:100%;display:block;object-fit:cover;border-radius:6px}
 
+    /* Method 部分样式 */
+    .method-section {
+      margin-top: 40px;
+      margin-bottom: 40px;
+    }
+    .method-title {
+      font-size: 28px;
+      color: #000000;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .method-image {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .method-image img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+    .method-description {
+      text-align: justify; /* 两端对齐 */
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
     /* 新增样式 */
     .ablation-section{margin-top:40px}
     .ablation-title{font-size:28px; color:#000000; margin-bottom:10px; text-align:center}
     
-    /* Grid 部分的描述文字样式 */
+    /* Grid 部分的描述文字样式 - 改为两端对齐 */
     .section-description{
-      text-align:center;
+      text-align: justify; /* 两端对齐 */
       color:var(--muted);
       font-size:14px;
       margin-top:20px;
@@ -144,7 +175,7 @@
       <div class="authors">Deyin Liu · Jicheng Xu · Lin Yuanbo Wu · Xiaowei Zhao · Xiatian Zhu · Anjan Dutta · Zhe Jin</div>
       <div class="links-row">
         <a class="btn-black" href="#" target="_blank" rel="noopener">arXiv</a>
-        <a class="btn-black" href="https://github.com/robinhood256100/web-disp       " target="_blank" rel="noopener">GitHub</a>
+        <a class="btn-black" href="https://github.com/robinhood256100/web-disp        " target="_blank" rel="noopener">GitHub</a>
       </div>
     </header>
 
@@ -170,9 +201,20 @@
         </div>
       </section>
 
+      <!-- Method 部分 -->
+      <section class="method-section">
+        <h2 class="method-title">Method</h2>
+        <div class="method-image">
+          <img src="assets/images/m.png" alt="Method Pipeline">
+        </div>
+        <div class="method-description">
+          <strong>The pipeline of our 3STC-HIA.</strong> We first align the target action sequence ${\mathbf{V}n}{n=1}^N$ with the reconstructed point cloud of the reference image $I^{\mathrm{ref}}$ in the world-coordinate space. The subject in $I^{\mathrm{ref}}$ (e.g., the person) is then animated to follow the user-defined 2D motion trajectory $T_{2D}$ while adapting to the varying elevation of the scene ground. During the subsequent generation stage, at each diffusion timestep, the predicted latents are fused with the noisy latents using guidance from the viewpoint-adaptive visible scene point cloud. This is achieved through a scene-visibility mask, which enhances camera control along the specified trajectory $\mathcal{C}$.
+        </div>
+      </section>
+
       <!-- Grid 部分的描述文字 -->
       <div class="section-description">
-        3STC-HIA is an inference-time guidance-based human image animation method that generates scene-adaptive, trajectory-controllable human motion videos with camera movement. Given a reference image, target actions, a human motion trajectory, and a camera trajectory, the method enables human motion retargeting with ground-adaptive trajectory control, while enhancing effect of camera movement through point-cloud-based scene visibility analysis. In the top row, a subject is shown running on flat terrain along motion trajectory 1, captured from varying viewpoints defined by the camera trajectory. In contrast, the bottom row illustrates the same running action performed on a sloped surface along motion trajectory 2 under the same camera views, where the character automatically adjusts its altitude and body orientation to adapt to the scene’s geometry.
+        3STC-HIA is an inference-time guidance-based human image animation method that generates scene-adaptive, trajectory-controllable human motion videos with camera movement. Given a reference image, target actions, a human motion trajectory, and a camera trajectory, the method enables human motion retargeting with ground-adaptive trajectory control, while enhancing effect of camera movement through point-cloud-based scene visibility analysis. In the top row, a subject is shown running on flat terrain along motion trajectory 1, captured from varying viewpoints defined by the camera trajectory. In contrast, the bottom row illustrates the same running action performed on a sloped surface along motion trajectory 2 under the same camera views, where the character automatically adjusts its altitude and body orientation to adapt to the scene's geometry.
       </div>
 
       <!-- 新增 Ablation 部分 -->
