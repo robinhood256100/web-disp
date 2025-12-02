@@ -148,12 +148,25 @@
       flex-shrink:0;
     }
     
+    <!-- 新增：视频组容器（用于ground-adaptive部分的成对视频） -->
+    .video-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    <!-- 新增：视频对容器 -->
+    .video-pair {
+      display: flex;
+      gap: 8px;
+    }
+    
     <!-- 新增：视频标签样式 -->
     .video-label {
       text-align: center;
       color: var(--muted);
       font-size: 12px;
-      margin-top: 8px;
       font-weight: 500;
     }
     
@@ -162,6 +175,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      gap: 8px;
     }
     
     /* Ablation视频容器 */
@@ -169,12 +183,12 @@
       display:flex;
       justify-content:center;
       align-items:flex-start;
-      gap:8px;
+      gap: 20px; /* 增大组间间距 */
       flex-wrap:nowrap;
       flex:1;
     }
     
-    <!-- 修改：视频项样式，支持标签 -->
+    <!-- 修改：视频项样式 -->
     .ablation-videos .video-item{
       flex:0 0 auto;
       min-width:0;
@@ -187,21 +201,27 @@
     }
     
     /* 四个视频的特殊布局 */
+    .ablation-videos.four-videos {
+      align-items: flex-start;
+    }
     .ablation-videos.four-videos .video-item video{
       max-width:240px;
     }
-    .ablation-videos.four-videos .video-item:nth-child(2){
-      margin-right:20px;
+    .ablation-videos.four-videos .video-pair {
+      gap: 8px;
     }
-    
-    <!-- 修改：三个视频的布局，支持标签 -->
+
+    /* 三个视频的布局 */
+    .ablation-videos.three-videos {
+      gap: 20px; /* 增大组间间距 */
+    }
     .ablation-videos.three-videos .video-item video{
       max-width:320px;
     }
     
-    <!-- 新增：为三个视频组的第二个视频添加间距 -->
-    .ablation-videos.three-videos .video-item:nth-child(2){
-      margin-right:20px;
+    <!-- 新增：为三个视频组的第二个视频添加间距（用于标签） -->
+    .ablation-videos.three-videos .video-item-container:nth-child(2){
+      margin-right: 0;
     }
 
     /* 消融实验描述文字样式 */
@@ -219,6 +239,12 @@
     .comparison-section {
       margin-top: 40px;
     }
+    .comparison-section .ablation-title {
+      margin-bottom: 25px; /* 增大标题与视频间距 */
+    }
+    .comparison-section .video-container {
+      margin-bottom: 40px; /* 增大视频与下方文字间距 */
+    }
     .comparison-section .ablation-videos {
       flex-direction: column;
       gap: 20px;
@@ -229,27 +255,17 @@
       max-height: 450px;
     }
 
-    <!-- 修改：调整Qualitative Comparison标题与视频的间距 -->
-    .comparison-section .ablation-title {
-      margin-bottom: 20px; /* 增大标题与视频间距 */
-    }
-
-    <!-- 修改：调整Qualitative Comparison视频与描述文字的间距 -->
-    .comparison-section .video-container {
-      margin-bottom: 30px; /* 增大视频与下方文字间距 */
-    }
-
-    <!-- 修改：Qualitative Comparison描述文字颜色为黑色 -->
-    .comparison-section .comparison-description {
-      color: #000000; /* 黑色文字 */
-      margin-top: 30px; /* 增大视频与文字间距 */
-    }
-
     <!-- 删除：comparison-section .case-wrapper相关样式 -->
 
     <!-- 删除：comparison-case样式 -->
 
     <!-- 删除：视频标签说明样式 -->
+
+    <!-- 新增：Qualitative Comparison描述文字颜色为黑色 -->
+    .comparison-section .comparison-description {
+      color: #000000; /* 黑色文字 */
+      margin-top: 0; /* 移除默认的上边距 */
+    }
 
     <!-- 新增：More result部分样式 -->
     .more-result-section {
@@ -275,7 +291,7 @@
       }
       .ablation-videos.four-videos .video-item:nth-child(2){margin-right:0}
       <!-- 新增：小屏幕下三个视频组的间距调整 -->
-      .ablation-videos.three-videos .video-item:nth-child(2){margin-right:0}
+      .ablation-videos.three-videos .video-item-container:nth-child(2){margin-right:0}
       .comparison-section .ablation-videos {
         flex-direction: column;
       }
@@ -294,7 +310,7 @@
       <div class="authors">#################################</div>
       <div class="links-row">
         <a class="btn-black" href="#" target="_blank" rel="noopener">arXiv</a>
-        <a class="btn-black" href="https://github.com/robinhood256100/web-disp   " target="_blank" rel="noopener">GitHub(Comming soon)</a>
+        <a class="btn-black" href="https://github.com/robinhood256100/web-disp" target="_blank" rel="noopener">GitHub(Comming soon)</a>
       </div>
     </header>
 
@@ -352,39 +368,37 @@
         <div class="case-wrapper case-wrapper-ablation1">
           <div class="case-label">case-1</div>
           <div class="ablation-videos four-videos">
-            <div class="video-item-container">
-              <div class="video-item">
-                <video autoplay muted playsinline loop>
-                  <source src="web-video/ab0-1/c2.mp4" type="video/mp4">
-                  Your browser does not support the video tag.
-                </video>
+            <div class="video-group">
+              <div class="video-pair">
+                <div class="video-item">
+                  <video autoplay muted playsinline loop>
+                    <source src="web-video/ab0-1/c2.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div class="video-item">
+                  <video autoplay muted playsinline loop>
+                    <source src="web-video/ab0-1/result2.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
               </div>
               <div class="video-label">Without ground adaptive</div>
             </div>
-            <div class="video-item-container">
-              <div class="video-item">
-                <video autoplay muted playsinline loop>
-                  <source src="web-video/ab0-1/result2.mp4" type="video/mp4">
-                  Your browser does not support the video tag.
-                </video>
-              </div>
-              <div class="video-label">Without ground adaptive</div>
-            </div>
-            <div class="video-item-container">
-              <div class="video-item">
-                <video autoplay muted playsinline loop>
-                  <source src="web-video/ab0-1/c1.mp4" type="video/mp4">
-                  Your browser does not support the video tag.
-                </video>
-              </div>
-              <div class="video-label">With ground adaptive</div>
-            </div>
-            <div class="video-item-container">
-              <div class="video-item">
-                <video autoplay muted playsinline loop>
-                  <source src="web-video/ab0-1/result1.mp4" type="video/mp4">
-                  Your browser does not support the video tag.
-                </video>
+            <div class="video-group">
+              <div class="video-pair">
+                <div class="video-item">
+                  <video autoplay muted playsinline loop>
+                    <source src="web-video/ab0-1/c1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div class="video-item">
+                  <video autoplay muted playsinline loop>
+                    <source src="web-video/ab0-1/result1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
               </div>
               <div class="video-label">With ground adaptive</div>
             </div>
@@ -395,39 +409,37 @@
         <div class="case-wrapper case-wrapper-ablation1">
           <div class="case-label">case-2</div>
           <div class="ablation-videos four-videos">
-            <div class="video-item-container">
-              <div class="video-item">
-                <video autoplay muted playsinline loop>
-                  <source src="web-video/ab0-2/c2.mp4" type="video/mp4">
-                  Your browser does not support the video tag.
-                </video>
+            <div class="video-group">
+              <div class="video-pair">
+                <div class="video-item">
+                  <video autoplay muted playsinline loop>
+                    <source src="web-video/ab0-2/c2.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div class="video-item">
+                  <video autoplay muted playsinline loop>
+                    <source src="web-video/ab0-2/result2.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
               </div>
               <div class="video-label">Without ground adaptive</div>
             </div>
-            <div class="video-item-container">
-              <div class="video-item">
-                <video autoplay muted playsinline loop>
-                  <source src="web-video/ab0-2/result2.mp4" type="video/mp4">
-                  Your browser does not support the video tag.
-                </video>
-              </div>
-              <div class="video-label">Without ground adaptive</div>
-            </div>
-            <div class="video-item-container">
-              <div class="video-item">
-                <video autoplay muted playsinline loop>
-                  <source src="web-video/ab0-2/c1.mp4" type="video/mp4">
-                  Your browser does not support the video tag.
-                </video>
-              </div>
-              <div class="video-label">With ground adaptive</div>
-            </div>
-            <div class="video-item-container">
-              <div class="video-item">
-                <video autoplay muted playsinline loop>
-                  <source src="web-video/ab0-2/result1.mp4" type="video/mp4">
-                  Your browser does not support the video tag.
-                </video>
+            <div class="video-group">
+              <div class="video-pair">
+                <div class="video-item">
+                  <video autoplay muted playsinline loop>
+                    <source src="web-video/ab0-2/c1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div class="video-item">
+                  <video autoplay muted playsinline loop>
+                    <source src="web-video/ab0-2/result1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
               </div>
               <div class="video-label">With ground adaptive</div>
             </div>
@@ -459,7 +471,7 @@
                   Your browser does not support the video tag.
                 </video>
               </div>
-              <div class="video-label">without visibility aware fusion</div>
+              <div class="video-label">Without viewpoint-adaptive scene guided</div>
             </div>
             <div class="video-item-container">
               <div class="video-item">
@@ -468,7 +480,7 @@
                   Your browser does not support the video tag.
                 </video>
               </div>
-              <div class="video-label">with visibility aware fusion</div>
+              <div class="video-label">With viewpoint-adaptive scene guided</div>
             </div>
           </div>
         </div>
@@ -491,7 +503,7 @@
                   Your browser does not support the video tag.
                 </video>
               </div>
-              <div class="video-label">without visibility aware fusion</div>
+              <div class="video-label">Without viewpoint-adaptive scene guided</div>
             </div>
             <div class="video-item-container">
               <div class="video-item">
@@ -500,7 +512,7 @@
                   Your browser does not support the video tag.
                 </video>
               </div>
-              <div class="video-label">with visibility aware fusion</div>
+              <div class="video-label">With viewpoint-adaptive scene guided</div>
             </div>
           </div>
         </div>
@@ -523,7 +535,7 @@
                   Your browser does not support the video tag.
                 </video>
               </div>
-              <div class="video-label">without visibility aware fusion</div>
+              <div class="video-label">Without viewpoint-adaptive scene guided</div>
             </div>
             <div class="video-item-container">
               <div class="video-item">
@@ -532,7 +544,7 @@
                   Your browser does not support the video tag.
                 </video>
               </div>
-              <div class="video-label">with visibility aware fusion</div>
+              <div class="video-label">With viewpoint-adaptive scene guided</div>
             </div>
           </div>
         </div>
@@ -542,20 +554,20 @@
         </div>
       </section>
 
-      <!-- 新增 Qualitative Comparison 部分（已删除case标签，调整间距和文字颜色） -->
+      <!-- 新增 Qualitative Comparison 部分（调整间距和文字颜色） -->
       <section class="comparison-section">
         <h2 class="ablation-title">Qualitative Comparison</h2>
         
-        <!-- 只保留视频，增加容器用于间距控制 -->
-        <div class="video-container" style="width: 100%; margin-bottom: 30px;">
+        <!-- 只保留视频 -->
+        <div style="width: 100%; margin-bottom: 40px;">
           <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;">
             <source src="web-video/s.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         
-        <!-- 文字颜色变为黑色，增加上方间距 -->
-        <div class="comparison-description" style="color: #000000; margin-top: 40px;">
+        <!-- 文字颜色变为黑色 -->
+        <div class="comparison-description" style="color: #000000;">
           Qualitative comparison of our method and baselines. The results of our method demonstrate coherent and natural human motion that maintains good physical consistency with the scene.
         </div>
       </section>
