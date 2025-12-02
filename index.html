@@ -218,23 +218,7 @@
       flex-wrap: wrap;
     }
 
-    /* 新增：视频标签说明样式 */
-    .video-labels {
-      flex-basis: 100%;
-      margin-left: 32px;
-      margin-top: -40px; /* 紧贴到case-2视频上 */
-      color: var(--muted);
-      font-size: 12px;
-      font-weight: 500;
-      display: flex;
-      justify-content: space-around;
-      line-height: 1;
-    }
-
-    /* 新增：特定标签额外左移 */
-    .video-labels .shift-left {
-      margin-left: -48px; /* 向左平移4个字符 */
-    }
+    /* 新增：视频标签说明样式（已删除） */
 
     /* 新增：全局描述文字样式 */
     .comparison-description {
@@ -272,11 +256,8 @@
       .comparison-section .ablation-videos {
         flex-direction: column;
       }
-      .video-labels {
-        margin-left: 0;
-        flex-wrap: wrap;
-        font-size: 10px;
-        gap: 5px;
+      .comparison-section .case-wrapper {
+        margin-bottom: 10px; /* 恢复小屏幕下的正常间距 */
       }
     }
   </style>
@@ -292,7 +273,7 @@
       <div class="authors">#################################</div>
       <div class="links-row">
         <a class="btn-black" href="#" target="_blank" rel="noopener">arXiv</a>
-        <a class="btn-black" href="https://github.com/robinhood256100/web-disp" target="_blank" rel="noopener">GitHub(Comming soon)</a>
+        <a class="btn-black" href="https://github.com/robinhood256100/web-disp " target="_blank" rel="noopener">GitHub(Comming soon)</a>
       </div>
     </header>
 
@@ -492,45 +473,26 @@
         </div>
       </section>
 
-      <!-- 新增 Qualitative Comparison 部分 -->
+      <!-- 新增 Qualitative Comparison 部分（已修改） -->
       <section class="comparison-section">
         <h2 class="ablation-title">Qualitative Comparison</h2>
         
-        <div class="case-wrapper comparison-case">
-          <div class="case-label">case 1</div>
-          <div class="ablation-videos">
-            <div class="video-item">
-              <video autoplay muted playsinline loop>
-                <source src="web-video/s1.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
-            </div>
+        <div style="display: flex; align-items: stretch; gap: 15px;">
+          <!-- 左侧标签列 -->
+          <div style="display: flex; flex-direction: column; justify-content: space-between; padding: 20px 0;">
+            <div class="case-label">case 1</div>
+            <div class="case-label">case 2</div>
           </div>
-        </div>
-
-        <div class="case-wrapper comparison-case">
-          <div class="case-label">case 2</div>
-          <div class="ablation-videos">
-            <div class="video-item">
-              <video autoplay muted playsinline loop>
-                <source src="web-video/s2.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
-            </div>
-          </div>
-          <!-- 新增：视频标签说明 -->
-          <div class="video-labels">
-            <span>Motion</span>
-            <span>Mimic-motion</span>
-            <span class="shift-left">Champ</span>
-            <span class="shift-left">Realis-Dance</span>
-            <span class="shift-left">Realis-Motion</span>
-            <span class="shift-left">Uni3C</span>
-            <span class="shift-left">Ours</span>
+          
+          <!-- 右侧视频 -->
+          <div style="flex: 1;">
+            <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;">
+              <source src="web-video/s.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
           </div>
         </div>
         
-        <!-- 新增：全局描述文字 -->
         <div class="comparison-description">
           Qualitative comparison of our method and baselines. The results of our method demonstrate coherent and natural human motion that maintains good physical consistency with the scene.
         </div>
