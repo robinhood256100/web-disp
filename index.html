@@ -148,16 +148,16 @@
       flex-shrink:0;
     }
     
-    <!-- 新增：视频标签样式（减小30%字体） -->
+    /* 新增：视频标签样式（减小30%字体）- 使用CSS注释 */
     .video-label {
       text-align: center;
       color: var(--muted);
-      font-size: 4px; /* 从12px减小到8px，约减小33% */
+      font-size: 8px; /* 从12px减小到8px，约减小33% */
       margin-top: 8px;
       font-weight: 500;
     }
     
-    <!-- 新增：视频项容器，用于容纳视频和标签 -->
+    /* 新增：视频项容器，用于容纳视频和标签 */
     .video-item-container {
       display: flex;
       flex-direction: column;
@@ -174,7 +174,7 @@
       flex:1;
     }
     
-    <!-- 修改：视频项样式 -->
+    /* 修改：视频项样式 */
     .ablation-videos .video-item{
       flex:0 0 auto;
       min-width:0;
@@ -224,29 +224,23 @@
       max-height: 450px;
     }
 
-    <!-- 修改：调整Qualitative Comparison标题与视频的间距 -->
+    /* 修改：调整Qualitative Comparison标题与视频的间距 */
     .comparison-section .ablation-title {
       margin-bottom: 25px; /* 增大标题与视频间距 */
     }
 
-    <!-- 修改：调整Qualitative Comparison视频与描述文字的间距 -->
+    /* 修改：调整Qualitative Comparison视频与描述文字的间距 */
     .comparison-section .video-container {
       margin-bottom: 40px; /* 增大视频与下方文字间距 */
     }
 
-    <!-- 修改：Qualitative Comparison描述文字颜色为黑色 -->
+    /* 修改：Qualitative Comparison描述文字颜色为黑色 */
     .comparison-section .comparison-description {
       color: #000000; /* 黑色文字 */
       margin-top: 30px; /* 增大视频与文字间距 */
     }
 
-    <!-- 删除：comparison-section .case-wrapper相关样式 -->
-
-    <!-- 删除：comparison-case样式 -->
-
-    <!-- 删除：视频标签说明样式 -->
-
-    <!-- 新增：More result部分样式 -->
+    /* 新增：More result部分样式 */
     .more-result-section {
       margin-top: 50px;
     }
@@ -272,7 +266,6 @@
       .comparison-section .ablation-videos {
         flex-direction: column;
       }
-      <!-- 删除comparison-section .case-wrapper样式 -->
     }
   </style>
 </head>
