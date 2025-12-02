@@ -56,7 +56,7 @@
     .video-card{background:transparent;border-radius:8px;overflow:hidden;display:flex;align-items:center;justify-content:center}
     .video-card video,.video-card img{width:100%;height:100%;display:block;object-fit:cover;border-radius:6px}
 
-    <!-- Abstract 部分样式 -->
+    /* Abstract 部分样式 */
     .abstract-section {
       margin-top: 30px;
       margin-bottom: 30px;
@@ -75,7 +75,7 @@
       max-width: 100%;
     }
 
-    <!-- Method 部分样式 -->
+    /* Method 部分样式 */
     .method-section {
       margin-top: 30px;
       margin-bottom: 30px;
@@ -104,7 +104,7 @@
       max-width: 100%;
     }
 
-    <!-- 新增样式 -->
+    /* 新增样式 */
     .ablation-section{margin-top:40px}
     .ablation-title{
       font-size:28px; 
@@ -113,7 +113,7 @@
       text-align:left;
     }
     
-    <!-- Grid 部分的描述文字样式 -->
+    /* Grid 部分的描述文字样式 */
     .section-description{
       text-align: justify;
       color:var(--muted);
@@ -124,15 +124,15 @@
       max-width: 100%;
     }
     
-    <!-- 案例包装器 -->
+    /* 案例包装器 */
     .case-wrapper{display:flex; align-items:center; gap:15px; margin-bottom:10px}
     
-    <!-- 仅第一个消融实验的案例包装器 -->
+    /* 仅第一个消融实验的案例包装器 */
     .case-wrapper-ablation1 {
       margin-bottom: 2px;
     }
     
-    <!-- 竖直案例标签 -->
+    /* 竖直案例标签 */
     .case-label{
       writing-mode: vertical-rl;
       text-orientation: mixed;
@@ -148,21 +148,21 @@
       flex-shrink:0;
     }
     
-    <!-- 新增：视频项容器（统一两个实验的结构） -->
+    /* 新增：视频项容器（统一两个实验的结构） */
     .video-item-container {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 4px; <!-- 统一间距：视频与标签之间的距离 -->
+      gap: 4px; /* 统一间距：视频与标签之间的距离 */
     }
     
-    <!-- 新增：视频对容器（第一个实验用） -->
+    /* 新增：视频对容器（第一个实验用） */
     .video-pair {
       display: flex;
-      gap: 8px; <!-- 两个视频之间的间距 -->
+      gap: 8px; /* 两个视频之间的间距 */
     }
     
-    <!-- 新增：视频标签样式（减小30%字体）- 使用CSS注释 -->
+    /* 新增：视频标签样式（减小30%字体）- 使用CSS注释 */
     .video-label {
       text-align: center;
       color: var(--muted);
@@ -170,36 +170,22 @@
       font-weight: 500;
     }
     
-    <!-- Ablation视频容器 -->
+    /* Ablation视频容器 */
     .ablation-videos{
       display:flex;
       justify-content:center;
       align-items:flex-start;
-      gap: 20px; <!-- 增大组间间距，让分组更明显 -->
+      gap: 20px; /* 增大组间间距，让分组更明显 */
       flex-wrap:nowrap;
       flex:1;
     }
     
-    <!-- 三个视频的布局 -->
-    .ablation-videos.three-videos .video-item video{
-      max-width:320px;
+    /* 四个视频的特殊布局 */
+    .ablation-videos.four-videos {
+      gap: 30px; /* 更大间距区分两组 */
     }
     
-    <!-- 新增：两个视频的布局 -->
-    .ablation-videos.two-videos {
-      gap: 40px; <!-- 比三个视频时更大的间距 -->
-    }
-    
-    .ablation-videos.two-videos .video-item-container {
-      flex: 0 0 auto;
-    }
-    
-    .ablation-videos.two-videos .video-item video {
-      max-width: 420px; <!-- 比三视频时更大 -->
-      height: 240px; <!-- 固定高度 -->
-    }
-    
-    <!-- 修改：视频项样式 -->
+    /* 修改：视频项样式 */
     .ablation-videos .video-item{
       flex:0 0 auto;
       min-width:0;
@@ -211,7 +197,31 @@
       display:block;
     }
     
-    <!-- 消融实验描述文字样式 -->
+    /* 四个视频的特殊布局 */
+    .ablation-videos.four-videos .video-item video{
+      max-width:240px;
+    }
+    
+    /* 三个视频的布局 */
+    .ablation-videos.three-videos .video-item video{
+      max-width:320px;
+    }
+    
+    /* 新增：两个视频的布局样式 */
+    .ablation-videos.two-videos {
+      gap: 40px; /* 比三个视频时更大的间距 */
+    }
+    
+    .ablation-videos.two-videos .video-item-container {
+      flex: 0 0 auto;
+    }
+    
+    .ablation-videos.two-videos .video-item video {
+      max-width: 420px; /* 比三视频时更大 */
+      height: 240px; /* 固定高度 */
+    }
+
+    /* 消融实验描述文字样式 */
     .ablation-description{
       text-align: justify;
       color:var(--muted);
@@ -222,7 +232,7 @@
       max-width:100%;
     }
 
-    <!-- 新增：单视频比较布局样式 -->
+    /* 新增：单视频比较布局样式 */
     .comparison-section {
       margin-top: 40px;
     }
@@ -236,27 +246,14 @@
       max-height: 450px;
     }
 
-    <!-- 修改：调整Qualitative Comparison标题与视频的间距 -->
+    /* 修改：调整Qualitative Comparison标题与视频的间距 */
     .comparison-section .ablation-title {
-      margin-bottom: 50px; <!-- 增大标题与视频间距 -->
+      margin-bottom: 50px; /* 增大标题与视频间距 */
     }
 
-    <!-- 修改：调整Qualitative Comparison视频与描述文字的间距 -->
+    /* 修改：调整Qualitative Comparison视频与描述文字的间距 */
     .comparison-section .video-container {
-      margin-bottom: 40px; <!-- 增大视频与下方文字间距 -->
-    }
-
-    <!-- 修改：Qualitative Comparison描述文字颜色为黑色且左对齐 -->
-    .comparison-section .comparison-description {
-      color: #000000; <!-- 黑色文字 -->
-      text-align: left; <!-- 左对齐 -->
-      font-weight: normal; <!-- 不加粗 -->
-      margin-top: 30px; <!-- 增大视频与文字间距 -->
-    }
-
-    <!-- 新增：More result部分样式 -->
-    .more-result-section {
-      margin-top: 50px;
+      margin-bottom: 40px; /* 增大视频与下方文字间距 */
     }
 
     footer{margin-top:22px;color:var(--muted);font-size:13px;text-align:center}
@@ -271,7 +268,7 @@
         margin-bottom:10px;
       }
       .ablation-videos{flex-direction:column; align-items:center; flex-wrap:wrap}
-      <!-- 新增：响应式下的两视频布局 -->
+      /* 新增：响应式下的两视频布局 */
       .ablation-videos.two-videos .video-item video {
         width:100%;
         height:auto;
@@ -513,7 +510,7 @@
         </div>
         
         <!-- 文字左对齐，不加粗 -->
-        <div class="comparison-description" style="color: #000000; text-align: left; font-weight: normal;">
+        <div class="comparison-description" style="text-align: left; font-weight: normal;">
           Qualitative comparison of our method and baselines. The results of our method demonstrate coherent and natural human motion that maintains good physical consistency with the scene.
         </div>
       </section>
