@@ -148,34 +148,20 @@
       flex-shrink:0;
     }
     
-    <!-- 新增：视频标签容器 -->
-    .video-labels-row {
-      display: flex;
-      justify-content: space-around;
-      width: 100%;
-      margin-top: 8px;
-    }
-    
     <!-- 新增：视频标签样式（减小30%字体） -->
     .video-label {
       text-align: center;
       color: var(--muted);
-      font-size: calc(12px * 0.7); /* 减小30% */
+      font-size: 8px; /* 从12px减小到8px，约减小33% */
+      margin-top: 8px;
       font-weight: 500;
-      flex: 1;
     }
     
-    <!-- 新增：视频项容器，用于viewpoint部分的标签 -->
+    <!-- 新增：视频项容器，用于容纳视频和标签 -->
     .video-item-container {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 8px;
-    }
-    
-    <!-- 新增：viewpoint部分标签样式（减小30%字体） -->
-    .video-item-container .video-label {
-      font-size: calc(12px * 0.7); /* 减小30% */
     }
     
     /* Ablation视频容器 */
@@ -253,6 +239,12 @@
       color: #000000; /* 黑色文字 */
       margin-top: 30px; /* 增大视频与文字间距 */
     }
+
+    <!-- 删除：comparison-section .case-wrapper相关样式 -->
+
+    <!-- 删除：comparison-case样式 -->
+
+    <!-- 删除：视频标签说明样式 -->
 
     <!-- 新增：More result部分样式 -->
     .more-result-section {
@@ -359,11 +351,14 @@
                 Your browser does not support the video tag.
               </video>
             </div>
-            <div class="video-item">
-              <video autoplay muted playsinline loop>
-                <source src="web-video/ab0-1/result2.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
+            <div class="video-item-container">
+              <div class="video-item">
+                <video autoplay muted playsinline loop>
+                  <source src="web-video/ab0-1/result2.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+              <div class="video-label">Without ground adaptive</div>
             </div>
             <div class="video-item">
               <video autoplay muted playsinline loop>
@@ -371,17 +366,15 @@
                 Your browser does not support the video tag.
               </video>
             </div>
-            <div class="video-item">
-              <video autoplay muted playsinline loop>
-                <source src="web-video/ab0-1/result1.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
+            <div class="video-item-container">
+              <div class="video-item">
+                <video autoplay muted playsinline loop>
+                  <source src="web-video/ab0-1/result1.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+              <div class="video-label">With ground adaptive</div>
             </div>
-          </div>
-          <!-- 新增：视频标签行 -->
-          <div class="video-labels-row">
-            <span class="video-label">Without ground adaptive</span>
-            <span class="video-label">With ground adaptive</span>
           </div>
         </div>
 
@@ -395,11 +388,14 @@
                 Your browser does not support the video tag.
               </video>
             </div>
-            <div class="video-item">
-              <video autoplay muted playsinline loop>
-                <source src="web-video/ab0-2/result2.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
+            <div class="video-item-container">
+              <div class="video-item">
+                <video autoplay muted playsinline loop>
+                  <source src="web-video/ab0-2/result2.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+              <div class="video-label">Without ground adaptive</div>
             </div>
             <div class="video-item">
               <video autoplay muted playsinline loop>
@@ -407,17 +403,15 @@
                 Your browser does not support the video tag.
               </video>
             </div>
-            <div class="video-item">
-              <video autoplay muted playsinline loop>
-                <source src="web-video/ab0-2/result1.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
+            <div class="video-item-container">
+              <div class="video-item">
+                <video autoplay muted playsinline loop>
+                  <source src="web-video/ab0-2/result1.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+              <div class="video-label">With ground adaptive</div>
             </div>
-          </div>
-          <!-- 新增：视频标签行 -->
-          <div class="video-labels-row">
-            <span class="video-label">Without ground adaptive</span>
-            <span class="video-label">With ground adaptive</span>
           </div>
         </div>
         
@@ -444,7 +438,7 @@
                   Your browser does not support the video tag.
                 </video>
               </div>
-              <div class="video-label">without visibility aware fusion</div>
+              <div class="video-label">Without viewpoint-adaptive scene guided</div>
             </div>
             <div class="video-item-container">
               <div class="video-item">
@@ -453,7 +447,7 @@
                   Your browser does not support the video tag.
                 </video>
               </div>
-              <div class="video-label">with visibility aware fusion</div>
+              <div class="video-label">With viewpoint-adaptive scene guided</div>
             </div>
           </div>
         </div>
@@ -474,7 +468,7 @@
                   Your browser does not support the video tag.
                 </video>
               </div>
-              <div class="video-label">without visibility aware fusion</div>
+              <div class="video-label">Without viewpoint-adaptive scene guided</div>
             </div>
             <div class="video-item-container">
               <div class="video-item">
@@ -483,7 +477,7 @@
                   Your browser does not support the video tag.
                 </video>
               </div>
-              <div class="video-label">with visibility aware fusion</div>
+              <div class="video-label">With viewpoint-adaptive scene guided</div>
             </div>
           </div>
         </div>
@@ -504,7 +498,7 @@
                   Your browser does not support the video tag.
                 </video>
               </div>
-              <div class="video-label">without visibility aware fusion</div>
+              <div class="video-label">Without viewpoint-adaptive scene guided</div>
             </div>
             <div class="video-item-container">
               <div class="video-item">
@@ -513,7 +507,7 @@
                   Your browser does not support the video tag.
                 </video>
               </div>
-              <div class="video-label">with visibility aware fusion</div>
+              <div class="video-label">With viewpoint-adaptive scene guided</div>
             </div>
           </div>
         </div>
@@ -523,20 +517,20 @@
         </div>
       </section>
 
-      <!-- 新增 Qualitative Comparison 部分（调整间距和文字颜色） -->
+      <!-- 新增 Qualitative Comparison 部分（已删除case标签，调整间距和文字颜色） -->
       <section class="comparison-section">
         <h2 class="ablation-title">Qualitative Comparison</h2>
         
-        <!-- 只保留视频 -->
-        <div style="width: 100%; margin-bottom: 40px;">
+        <!-- 只保留视频，增加容器用于间距控制 -->
+        <div class="video-container" style="width: 100%; margin-bottom: 30px;">
           <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;">
             <source src="web-video/s.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         
-        <!-- 文字颜色变为黑色 -->
-        <div class="comparison-description" style="color: #000000;">
+        <!-- 文字颜色变为黑色，增加上方间距 -->
+        <div class="comparison-description" style="color: #000000; margin-top: 40px;">
           Qualitative comparison of our method and baselines. The results of our method demonstrate coherent and natural human motion that maintains good physical consistency with the scene.
         </div>
       </section>
