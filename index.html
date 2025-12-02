@@ -220,6 +220,11 @@
       max-width: 420px; /* 比三视频时更大 */
       height: 240px; /* 固定高度 */
     }
+    
+    /* 新增：针对ground-adaptive部分的紧凑间距 */
+    .ablation-videos.two-videos .video-item-container {
+      gap: 2px; /* 将视频和标签间距从4px减小到2px */
+    }
 
     /* 消融实验描述文字样式 */
     .ablation-description{
@@ -510,7 +515,7 @@
         </div>
         
         <!-- 文字左对齐，不加粗 -->
-        <div class="comparison-description" style="text-align: left; font-weight: normal;">
+        <div class="comparison-description" style="color: #000000; text-align: left; font-weight: normal;">
           Qualitative comparison of our method and baselines. The results of our method demonstrate coherent and natural human motion that maintains good physical consistency with the scene.
         </div>
       </section>
