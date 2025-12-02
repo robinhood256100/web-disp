@@ -148,15 +148,15 @@
       flex-shrink:0;
     }
     
-    /* 新增：视频组容器（用于第一个实验的4个视频分组） */
-    .video-group {
+    /* 新增：视频项容器（统一两个实验的结构） */
+    .video-item-container {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 4px; /* 视频与标签的间距 */
+      gap: 4px; /* 统一间距：视频与标签之间的距离 */
     }
     
-    /* 新增：视频对容器 */
+    /* 新增：视频对容器（第一个实验用） */
     .video-pair {
       display: flex;
       gap: 8px; /* 两个视频之间的间距 */
@@ -168,14 +168,6 @@
       color: var(--muted);
       font-size: 8px; /* 从12px减小到8px，约减小33% */
       font-weight: 500;
-    }
-    
-    /* 新增：视频项容器，用于第二个实验的标签 */
-    .video-item-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 4px; /* 视频与标签的间距（与video-group一致） */
     }
     
     /* Ablation视频容器 */
@@ -353,7 +345,7 @@
         <div class="case-wrapper case-wrapper-ablation1">
           <div class="case-label">case-1</div>
           <div class="ablation-videos four-videos">
-            <div class="video-group">
+            <div class="video-item-container">
               <div class="video-pair">
                 <div class="video-item">
                   <video autoplay muted playsinline loop>
@@ -370,7 +362,7 @@
               </div>
               <div class="video-label">Without ground adaptive</div>
             </div>
-            <div class="video-group">
+            <div class="video-item-container">
               <div class="video-pair">
                 <div class="video-item">
                   <video autoplay muted playsinline loop>
@@ -394,7 +386,7 @@
         <div class="case-wrapper case-wrapper-ablation1">
           <div class="case-label">case-2</div>
           <div class="ablation-videos four-videos">
-            <div class="video-group">
+            <div class="video-item-container">
               <div class="video-pair">
                 <div class="video-item">
                   <video autoplay muted playsinline loop>
@@ -411,7 +403,7 @@
               </div>
               <div class="video-label">Without ground adaptive</div>
             </div>
-            <div class="video-group">
+            <div class="video-item-container">
               <div class="video-pair">
                 <div class="video-item">
                   <video autoplay muted playsinline loop>
