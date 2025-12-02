@@ -218,19 +218,19 @@
       flex-wrap: wrap;
     }
 
-    /* 新增：视频标签说明样式（已删除） */
+    <!-- 删除视频标签说明样式 -->
 
-    /* 新增：全局描述文字样式 */
+    <!-- 新增：全局描述文字样式 -->
     .comparison-description {
       text-align: justify;
       color: var(--muted);
       font-size: 14px;
       line-height: 1.6;
-      margin-top: 30px; /* 恢复与标签行的正常间距 */
+      margin-top: 30px; /* 恢复与标签行的正常间距 -->
       margin-bottom: 40px;
     }
 
-    /* 新增：More result部分样式 */
+    <!-- 新增：More result部分样式 -->
     .more-result-section {
       margin-top: 50px;
     }
@@ -273,7 +273,7 @@
       <div class="authors">#################################</div>
       <div class="links-row">
         <a class="btn-black" href="#" target="_blank" rel="noopener">arXiv</a>
-        <a class="btn-black" href="https://github.com/robinhood256100/web-disp " target="_blank" rel="noopener">GitHub(Comming soon)</a>
+        <a class="btn-black" href="https://github.com/robinhood256100/web-disp  " target="_blank" rel="noopener">GitHub(Comming soon)</a>
       </div>
     </header>
 
@@ -473,24 +473,16 @@
         </div>
       </section>
 
-      <!-- 新增 Qualitative Comparison 部分（已修改） -->
+      <!-- 新增 Qualitative Comparison 部分（已删除case标签） -->
       <section class="comparison-section">
         <h2 class="ablation-title">Qualitative Comparison</h2>
         
-        <div style="display: flex; align-items: stretch; gap: 15px;">
-          <!-- 左侧标签列 -->
-          <div style="display: flex; flex-direction: column; justify-content: space-between; padding: 20px 0;">
-            <div class="case-label">case 1</div>
-            <div class="case-label">case 2</div>
-          </div>
-          
-          <!-- 右侧视频 -->
-          <div style="flex: 1;">
-            <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;">
-              <source src="web-video/s.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-          </div>
+        <!-- 只保留视频 -->
+        <div style="width: 100%;">
+          <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;">
+            <source src="web-video/s.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
         </div>
         
         <div class="comparison-description">
