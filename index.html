@@ -153,8 +153,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 2px; /* 减小到2px，精确控制间距 */
-      line-height: 0; /* 移除行高造成的额外空间 */
+      gap: 4px; /* 统一间距：视频与标签之间的距离 */
     }
     
     /* 新增：视频对容器（第一个实验用） */
@@ -169,17 +168,6 @@
       color: var(--muted);
       font-size: 12px;
       font-weight: 500;
-      margin-top: 0; /* 移除margin-top，使用gap控制 */
-      line-height: 1; /* 确保行高不会增加额外空间 */
-    }
-    
-    /* 新增：强制移除视频的基线空白 */
-    .video-item video {
-      display: block; /* 移除inline元素的基线空格 */
-      vertical-align: top; /* 强制顶部对齐 */
-      height: 180px;
-      width: auto;
-      border-radius: 6px;
     }
     
     /* Ablation视频容器 */
@@ -195,6 +183,18 @@
     /* 四个视频的特殊布局 */
     .ablation-videos.four-videos {
       gap: 30px; /* 更大间距区分两组 */
+    }
+    
+    /* 修改：视频项样式 */
+    .ablation-videos .video-item{
+      flex:0 0 auto;
+      min-width:0;
+    }
+    .ablation-videos .video-item video{
+      height:180px;
+      width:auto;
+      border-radius:6px;
+      display:block;
     }
     
     /* 四个视频的特殊布局 */
@@ -287,7 +287,7 @@
       <div class="authors">#################################</div>
       <div class="links-row">
         <a class="btn-black" href="#" target="_blank" rel="noopener">arXiv</a>
-        <a class="btn-black" href="https://github.com/robinhood256100/web-disp  " target="_blank" rel="noopener">GitHub(Comming soon)</a>
+        <a class="btn-black" href="https://github.com/robinhood256100/web-disp " target="_blank" rel="noopener">GitHub(Comming soon)</a>
       </div>
     </header>
 
