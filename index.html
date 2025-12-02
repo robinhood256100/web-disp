@@ -15,7 +15,7 @@
       }
     };
   </script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js " async></script>
   
   <style>
     :root{
@@ -242,10 +242,12 @@
       margin-bottom: 40px; /* 增大视频与下方文字间距 */
     }
 
-    /* 修改：Qualitative Comparison描述文字颜色为黑色 */
+    /* 修改：Qualitative Comparison描述文字样式 - 两端对齐，不加粗 */
     .comparison-section .comparison-description {
       color: #000000; /* 黑色文字 */
       margin-top: 30px; /* 增大视频与文字间距 */
+      text-align: justify; /* 两端对齐 */
+      font-weight: normal; /* 确保不加粗 */
     }
 
     /* 新增：More result部分样式 */
@@ -287,7 +289,7 @@
       <div class="authors">#################################</div>
       <div class="links-row">
         <a class="btn-black" href="#" target="_blank" rel="noopener">arXiv</a>
-        <a class="btn-black" href="https://github.com/robinhood256100/web-disp " target="_blank" rel="noopener">GitHub(Comming soon)</a>
+        <a class="btn-black" href="https://github.com/robinhood256100/web-disp  " target="_blank" rel="noopener">GitHub(Comming soon)</a>
       </div>
     </header>
 
@@ -537,7 +539,7 @@
           </video>
         </div>
         
-        <!-- 文字颜色变为黑色 -->
+        <!-- 文字颜色变为黑色，两端对齐 -->
         <div class="comparison-description" style="color: #000000;">
           Qualitative comparison of our method and baselines. The results of our method demonstrate coherent and natural human motion that maintains good physical consistency with the scene.
         </div>
