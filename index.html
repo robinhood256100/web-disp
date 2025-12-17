@@ -384,8 +384,8 @@
           </div>
         </div>
 
-        <!-- 第一个消融实验的第二个案例（仅在这里做视觉上提拉，不改内部布局） -->
-        <div class="case-wrapper case-wrapper-ablation1" style="transform: translateY(-8px);">
+        <!-- 第一个消融实验的第二个案例 -->
+        <div class="case-wrapper case-wrapper-ablation1">
           <div class="case-label">case-2</div>
           <div class="ablation-videos four-videos">
             <div class="video-item-container">
@@ -559,7 +559,35 @@
     </footer>
   </div>
 
+  <!-- ====== 新增脚本：仅针对第一组两个 case 强制调整间距（最小副作用，可删） ====== -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      try {
+        // 仅选取 ablation-section 下，class 同时包含 case-wrapper 和 case-wrapper-ablation1 的元素（保持最小作用域）
+        const els = Array.from(document.querySelectorAll('.ablation-section .case-wrapper.case-wrapper-ablation1'));
+        // 如果至少有两个（case-1 和 case-2），只改这两个
+        if (els.length >= 2) {
+          const first = els[0], second = els[1];
+          // 你想要的像素值：这里默认 4px（可以改为 2 / 0 / 6 等）
+          const marginValue = '4px';
+          // 先清除可能的 margin 折叠影响：把第一个下边距设小，把第二个上边距设小
+          first.style.marginBottom = marginValue;
+          second.style.marginTop = marginValue;
+          // 作为保险：小幅向上移动第二行（视觉上更靠近第一行），不会改变内部布局
+          second.style.position = 'relative';
+          second.style.top = '-4px';
+          // Debug 打印（可删除）
+          console.log('Ablation spacing adjusted by script:', marginValue, 'second top -4px applied');
+        } else {
+          console.log('Ablation script: 找不到两个 case-wrapper.case-wrapper-ablation1 元素，found=', els.length);
+        }
+      } catch (e) {
+        console.error('Ablation spacing script error:', e);
+      }
+    });
+  </script>
+  <!-- ====== 脚本结束 ====== -->
+
   <!-- No JS needed for autoplay display -->
 </body>
 </html>
-
