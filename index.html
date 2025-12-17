@@ -276,6 +276,14 @@
         flex-direction: column;
       }
     }
+    /* 仅缩小第一个消融实验那两行之间的垂直间距 —— 最小改动 */
+  .ablation-section .case-wrapper-ablation1 {
+    margin-bottom: 0; /* 将该类的下边距设为 0（原来是 2px），只影响带此类的行 */
+  }
+  .ablation-section .case-wrapper-ablation1 + .case-wrapper-ablation1 {
+    margin-top: 4px; /* 若需要可再调小为 2px / 0px；只影响紧邻的第二个该类元素 */
+  }
+
   </style>
 </head>
 <body>
