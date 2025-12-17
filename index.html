@@ -276,14 +276,19 @@
         flex-direction: column;
       }
     }
-    /* 仅缩小第一个消融实验那两行之间的垂直间距 —— 最小改动 */
-  .ablation-section .case-wrapper-ablation1 {
-    margin-bottom: 0; /* 将该类的下边距设为 0（原来是 2px），只影响带此类的行 */
-  }
-  .ablation-section .case-wrapper-ablation1 + .case-wrapper-ablation1 {
-    margin-top: 4px; /* 若需要可再调小为 2px / 0px；只影响紧邻的第二个该类元素 */
-  }
-
+    /* === 强制只缩小第一个消融实验（case-1 / case-2）两行之间的垂直间距 ===
+       只作用于同时含有 .case-wrapper 与 .case-wrapper-ablation1 的元素，最小改动 */
+    .case-wrapper.case-wrapper-ablation1 {
+      margin-bottom: 4px !important;   /* 改这个值调整行间距（试 2px / 0px / 6px） */
+    }
+    
+    /* 防止内部元素（如 ablation-videos / video-item）带额外下边距影响总间距 */
+    .case-wrapper.case-wrapper-ablation1 .ablation-videos,
+    .case-wrapper.case-wrapper-ablation1 .video-item-container,
+    .case-wrapper.case-wrapper-ablation1 .video-item {
+      margin-bottom: 0 !important;
+      padding-bottom: 0 !important;
+    }
   </style>
 </head>
 <body>
