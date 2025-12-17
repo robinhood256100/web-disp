@@ -276,19 +276,6 @@
         flex-direction: column;
       }
     }
-    /* === 强制只缩小第一个消融实验（case-1 / case-2）两行之间的垂直间距 ===
-       只作用于同时含有 .case-wrapper 与 .case-wrapper-ablation1 的元素，最小改动 */
-    .case-wrapper.case-wrapper-ablation1 {
-      margin-bottom: 4px !important;   /* 改这个值调整行间距（试 2px / 0px / 6px） */
-    }
-    
-    /* 防止内部元素（如 ablation-videos / video-item）带额外下边距影响总间距 */
-    .case-wrapper.case-wrapper-ablation1 .ablation-videos,
-    .case-wrapper.case-wrapper-ablation1 .video-item-container,
-    .case-wrapper.case-wrapper-ablation1 .video-item {
-      margin-bottom: 0 !important;
-      padding-bottom: 0 !important;
-    }
   </style>
 </head>
 <body>
@@ -357,7 +344,7 @@
         <h2 class="ablation-title">Ablation on ground-adaptive 3D motion retargeting</h2>
         
         <!-- 第一个消融实验的第一个案例 -->
-        <div class="case-wrapper case-wrapper-ablation1" style="margin-bottom:4px !important;">
+        <div class="case-wrapper case-wrapper-ablation1">
           <div class="case-label">case-1</div>
           <div class="ablation-videos four-videos">
             <div class="video-item-container">
@@ -397,8 +384,8 @@
           </div>
         </div>
 
-        <!-- 第一个消融实验的第二个案例 -->
-        <div class="case-wrapper case-wrapper-ablation1" style="margin-top:4px !important; margin-bottom:0 !important;">
+        <!-- 第一个消融实验的第二个案例（仅在这里做视觉上提拉，不改内部布局） -->
+        <div class="case-wrapper case-wrapper-ablation1" style="transform: translateY(-8px);">
           <div class="case-label">case-2</div>
           <div class="ablation-videos four-videos">
             <div class="video-item-container">
@@ -575,3 +562,4 @@
   <!-- No JS needed for autoplay display -->
 </body>
 </html>
+
