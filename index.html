@@ -285,6 +285,11 @@
     .case-wrapper-ablation1 .video-item-container {
       gap: 2px;   /* 原来是 4px，可试 1px / 0px */
     }
+    /* 仅第一个 Ablation：压缩视频与下方小标签的视觉距离 */
+    .case-wrapper-ablation1 .video-label {
+      line-height: 1.1;      /* 原来大约 1.4，压缩两行文字本身高度 */
+      margin-top: -2px;      /* 轻微上移文字（关键） */
+    }
 
   </style>
 </head>
