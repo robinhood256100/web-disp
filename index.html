@@ -281,6 +281,11 @@
       min-height: 200px;   /* 你现在想要的高度 */
       height: auto;        /* 覆盖原本的 240px */
     }
+    /* 仅缩小第一个 Ablation 中：视频 ↔ 下方小标签 的距离 */
+    .case-wrapper-ablation1 .video-item-container {
+      gap: 2px;   /* 原来是 4px，可试 1px / 0px */
+    }
+
   </style>
 </head>
 <body>
