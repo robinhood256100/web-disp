@@ -32,7 +32,7 @@ body {
 .hero {
   position: relative;
   isolation: isolate;
-  min-height: 540px;
+  min-height: 630px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -87,9 +87,9 @@ body {
   gap: 9px;
   margin-bottom: 18px;
   color: var(--blue-deep);
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 750;
-  letter-spacing: .15em;
+  letter-spacing: .13em;
   text-transform: uppercase;
 }
 .eyebrow span { width: 24px; height: 2px; background: var(--orange); }
@@ -98,7 +98,7 @@ h1 {
   max-width: none;
   margin: 0;
   color: var(--ink);
-  font-size: clamp(35px, 3.2vw, 45px);
+  font-size: clamp(39px, 3.7vw, 52px);
   line-height: 1.09;
   letter-spacing: -.04em;
   text-align: center;
@@ -123,6 +123,62 @@ h1 span {
   font-size: 13px;
   font-weight: 650;
   letter-spacing: .06em;
+}
+
+.authors-block {
+  width: min(100%, 1040px);
+  margin: 30px auto 0;
+  padding-top: 24px;
+  border-top: 1px solid rgba(93, 126, 151, .20);
+}
+
+.author-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px 26px;
+}
+
+.author {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--ink);
+  font-size: 16px;
+  font-weight: 720;
+  text-decoration: none;
+  transition: color .2s ease, transform .2s ease;
+}
+
+.author:hover { color: var(--blue-deep); transform: translateY(-1px); }
+.author sup,
+.affiliations sup { color: var(--blue-deep); font-size: .7em; font-weight: 800; }
+
+.orcid-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 19px;
+  height: 19px;
+  margin-left: 2px;
+  color: #fff;
+  border-radius: 50%;
+  background: #a6ce39;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: -.06em;
+}
+
+.affiliations {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 7px 24px;
+  margin-top: 18px;
+  color: #65778a;
+  font-size: 13px;
+  line-height: 1.5;
 }
 
 .links-row { display: flex; gap: 10px; margin: 28px 0 0; }
@@ -313,8 +369,8 @@ footer {
 }
 
 @media (max-width: 900px) {
-  .hero { min-height: 560px; margin-bottom: 44px; }
-  h1 { font-size: clamp(29px, 4.7vw, 39px); }
+  .hero { min-height: 650px; margin-bottom: 44px; }
+  h1 { font-size: clamp(31px, 5vw, 42px); }
   .grid { grid-template-columns: 1fr; }
   .video-card { aspect-ratio: 16 / 10; }
   .ablation-videos, .ablation-videos.four-videos, .ablation-videos.three-videos {
@@ -331,10 +387,15 @@ footer {
 
 @media (max-width: 620px) {
   .wrap { width: min(100% - 24px, 1180px); padding-bottom: 40px; }
-  .hero { width: 100%; min-height: 570px; padding-inline: 28px; }
+  .hero { width: 100%; min-height: 760px; padding-inline: 22px; }
   .hero::before { inset: 12px; border-radius: 24px; }
-  h1 { font-size: 33px; text-align: center; }
+  .eyebrow { font-size: 13px; }
+  h1 { font-size: 34px; text-align: center; }
   h1 span { white-space: normal; }
+  .authors-block { margin-top: 24px; padding-top: 20px; }
+  .author-list { gap: 10px 18px; }
+  .author { font-size: 14px; }
+  .affiliations { display: grid; gap: 7px; font-size: 12px; }
   .hero-lead { font-size: 15px; }
   .links-row { flex-wrap: wrap; justify-content: center; }
   .grid { padding: 7px; border-radius: 20px; }
