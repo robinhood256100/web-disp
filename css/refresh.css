@@ -32,7 +32,7 @@ body {
 .hero {
   position: relative;
   isolation: isolate;
-  min-height: 590px;
+  min-height: 570px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -217,6 +217,8 @@ main { display: block; }
   border-radius: 26px;
   background: rgba(255,255,255,.72);
   box-shadow: var(--shadow);
+  width: min(100%, 1100px);
+  margin-inline: auto;
 }
 
 .video-card {
@@ -244,6 +246,7 @@ main { display: block; }
 .video-card:nth-child(1)::after { content: "Trajectory 01"; }
 .video-card:nth-child(2)::after { content: "Control setup"; }
 .video-card:nth-child(3)::after { content: "Trajectory 02"; }
+#gallery .video-card:nth-child(2) img { object-fit: fill !important; }
 
 .section-description,
 .abstract-description,
@@ -256,8 +259,8 @@ main { display: block; }
 }
 
 .section-description {
-  width: 100%;
-  max-width: none;
+  width: min(100%, 1080px);
+  max-width: 1080px;
   margin: 32px auto 88px;
   padding: 0 8px;
 }
