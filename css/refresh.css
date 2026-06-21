@@ -37,12 +37,12 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  left: 50%;
-  width: calc(100vw - 48px);
+  left: auto;
+  width: 100%;
   margin: 0 0 64px;
-  padding: 58px max(28px, calc((100vw - 1240px) / 2));
+  padding: 58px 28px;
   text-align: center;
-  transform: translateX(-50%);
+  transform: none;
   overflow: hidden;
 }
 
@@ -98,7 +98,7 @@ h1 {
   max-width: none;
   margin: 0;
   color: var(--ink);
-  font-size: clamp(35px, 3.55vw, 49px);
+  font-size: clamp(35px, 3.2vw, 45px);
   line-height: 1.09;
   letter-spacing: -.04em;
   text-align: center;
@@ -315,7 +315,7 @@ footer {
 
 @media (max-width: 620px) {
   .wrap { width: min(100% - 24px, 1180px); padding-bottom: 40px; }
-  .hero { width: calc(100vw - 24px); min-height: 570px; padding-inline: 28px; }
+  .hero { width: 100%; min-height: 570px; padding-inline: 28px; }
   .hero::before { inset: 12px; border-radius: 24px; }
   h1 { font-size: 33px; text-align: center; }
   h1 span { white-space: normal; }
