@@ -200,9 +200,10 @@ main { display: block; }
 }
 
 .section-description {
-  max-width: 960px;
+  width: 100%;
+  max-width: none;
   margin: 32px auto 88px;
-  padding: 0 22px;
+  padding: 0 8px;
 }
 .section-description strong { color: var(--blue-deep); }
 
