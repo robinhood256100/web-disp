@@ -288,6 +288,8 @@ main { display: block; }
 .ablation-description { margin: 28px 4px 64px; }
 .comparison-section .video-container { margin: 0 0 26px; }
 .comparison-section .video-container video { border-radius: 16px !important; box-shadow: var(--shadow); }
+.combination-section .video-container { margin-bottom: 0; }
+.combination-section .video-container video { display: block; width: 100%; height: auto; }
 .more-result-section { margin-top: 34px; }
 
 footer {
