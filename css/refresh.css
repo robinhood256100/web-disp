@@ -32,14 +32,14 @@ body {
 .hero {
   position: relative;
   isolation: isolate;
-  min-height: 690px;
+  min-height: 540px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: calc(100% + 16px);
-  margin: 0 -8px 64px;
-  padding: 72px max(24px, calc((100vw - 1180px) / 2));
+  width: calc(100% + 48px);
+  margin: 0 -24px 64px;
+  padding: 58px max(28px, calc((100vw - 1240px) / 2));
   text-align: center;
   overflow: hidden;
 }
@@ -61,7 +61,7 @@ body {
 .hero::after {
   content: "";
   position: absolute;
-  top: 62px;
+  top: 22px;
   left: 50%;
   width: 480px;
   height: 480px;
@@ -72,9 +72,19 @@ body {
   filter: blur(8px);
 }
 
-.method-icon { margin: 0 0 20px; }
+.hero-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  width: 100%;
+}
+
+.method-icon { flex: 0 0 auto; margin: 0; }
 .method-icon img {
-  max-width: 128px;
+  display: block;
+  width: 88px;
+  max-width: none;
   filter: drop-shadow(0 14px 20px rgba(38, 103, 145, .18));
 }
 
@@ -92,18 +102,23 @@ body {
 .eyebrow span { width: 24px; height: 2px; background: var(--orange); }
 
 h1 {
-  max-width: 1020px;
+  max-width: none;
   margin: 0;
   color: var(--ink);
-  font-size: clamp(38px, 5.2vw, 68px);
-  line-height: 1.04;
-  letter-spacing: -.048em;
-  text-wrap: balance;
+  font-size: clamp(35px, 3.55vw, 49px);
+  line-height: 1.09;
+  letter-spacing: -.04em;
+  text-align: left;
+}
+
+h1 span {
+  display: block;
+  white-space: nowrap;
 }
 
 .hero-lead {
   max-width: 700px;
-  margin: 24px auto 0;
+  margin: 26px auto 0;
   color: var(--ink-soft);
   font-size: clamp(16px, 1.8vw, 20px);
   line-height: 1.65;
@@ -289,8 +304,10 @@ footer {
 }
 
 @media (max-width: 900px) {
-  .hero { min-height: 620px; margin-bottom: 44px; }
-  h1 br { display: none; }
+  .hero { min-height: 560px; margin-bottom: 44px; }
+  .hero-title-row { gap: 16px; }
+  .method-icon img { width: 72px; }
+  h1 { font-size: clamp(29px, 4.7vw, 39px); }
   .grid { grid-template-columns: 1fr; }
   .video-card { aspect-ratio: 16 / 10; }
   .ablation-videos, .ablation-videos.four-videos, .ablation-videos.three-videos {
@@ -307,10 +324,12 @@ footer {
 
 @media (max-width: 620px) {
   .wrap { width: min(100% - 24px, 1180px); padding-bottom: 40px; }
-  .hero { min-height: 570px; padding-inline: 28px; }
+  .hero { width: calc(100% + 16px); min-height: 570px; margin-inline: -8px; padding-inline: 28px; }
   .hero::before { inset: 12px; border-radius: 24px; }
-  .method-icon img { max-width: 100px; }
-  h1 { font-size: 36px; }
+  .hero-title-row { flex-direction: column; gap: 16px; }
+  .method-icon img { width: 72px; }
+  h1 { font-size: 33px; text-align: center; }
+  h1 span { white-space: normal; }
   .hero-lead { font-size: 15px; }
   .links-row { flex-wrap: wrap; justify-content: center; }
   .grid { padding: 7px; border-radius: 20px; }
