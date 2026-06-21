@@ -272,6 +272,19 @@ main { display: block; }
 }
 .ablation-videos { gap: 18px; }
 .ablation-videos.four-videos { gap: 22px; }
+.ablation-videos.paired-videos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  width: 100%;
+  gap: 18px;
+}
+.paired-videos .video-item-container,
+.paired-videos .video-item { width: 100%; min-width: 0; }
+.ablation-videos.paired-videos .video-item video {
+  width: 100%;
+  max-width: none;
+  height: auto;
+}
 .video-pair { gap: 8px; }
 .ablation-videos .video-item video {
   border: 1px solid rgba(17,24,39,.08);
@@ -334,6 +347,7 @@ footer {
   .abstract-title, .method-title, .ablation-title { align-items: flex-start; font-size: 25px; }
   .case-wrapper { padding: 12px; }
   .video-pair { flex-wrap: wrap; justify-content: center; }
+  .ablation-videos.paired-videos { grid-template-columns: 1fr; }
   .ablation-videos .video-item video { width: 100%; height: auto; max-width: 100%; }
 }
 
