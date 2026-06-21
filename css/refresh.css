@@ -1,0 +1,332 @@
+/* Visual refresh — the original stylesheet remains below this layer for easy rollback. */
+:root {
+  --ink: #111827;
+  --ink-soft: #485468;
+  --paper: #f5f8fb;
+  --surface: rgba(255, 255, 255, .88);
+  --line: #dce6ef;
+  --blue: #358dd0;
+  --blue-deep: #17679e;
+  --orange: #ffb21b;
+  --shadow: 0 22px 60px rgba(34, 75, 107, .10);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 15% 2%, rgba(84, 173, 226, .14), transparent 28rem),
+    radial-gradient(circle at 88% 13%, rgba(255, 178, 27, .10), transparent 22rem),
+    var(--paper);
+  text-align: left;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap {
+  width: min(100% - 40px, 1180px);
+  max-width: none;
+  padding: 0 0 72px;
+}
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  min-height: 690px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: calc(100% + 16px);
+  margin: 0 -8px 64px;
+  padding: 72px max(24px, calc((100vw - 1180px) / 2));
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 22px max(18px, calc((100vw - 1240px) / 2));
+  z-index: -1;
+  border: 1px solid rgba(255,255,255,.9);
+  border-radius: 36px;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.94), rgba(255,255,255,.66)),
+    linear-gradient(115deg, rgba(53,141,208,.12), rgba(255,178,27,.08));
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(16px);
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 62px;
+  left: 50%;
+  width: 480px;
+  height: 480px;
+  z-index: -1;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(73,166,221,.15), transparent 68%);
+  filter: blur(8px);
+}
+
+.method-icon { margin: 0 0 20px; }
+.method-icon img {
+  max-width: 128px;
+  filter: drop-shadow(0 14px 20px rgba(38, 103, 145, .18));
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 18px;
+  color: var(--blue-deep);
+  font-size: 12px;
+  font-weight: 750;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+}
+.eyebrow span { width: 24px; height: 2px; background: var(--orange); }
+
+h1 {
+  max-width: 1020px;
+  margin: 0;
+  color: var(--ink);
+  font-size: clamp(38px, 5.2vw, 68px);
+  line-height: 1.04;
+  letter-spacing: -.048em;
+  text-wrap: balance;
+}
+
+.hero-lead {
+  max-width: 700px;
+  margin: 24px auto 0;
+  color: var(--ink-soft);
+  font-size: clamp(16px, 1.8vw, 20px);
+  line-height: 1.65;
+}
+
+.authors {
+  margin-top: 18px;
+  color: #7890a5;
+  font-size: 13px;
+  font-weight: 650;
+  letter-spacing: .06em;
+}
+
+.links-row { display: flex; gap: 10px; margin: 28px 0 0; }
+.btn-black {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 46px;
+  margin: 0;
+  padding: 0 18px;
+  border: 1px solid var(--ink);
+  border-radius: 999px;
+  background: var(--ink);
+  box-shadow: 0 8px 20px rgba(17,24,39,.14);
+  font-size: 14px;
+  font-weight: 700;
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+}
+.btn-black:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(17,24,39,.2); }
+.btn-black span { opacity: .65; font-size: 11px; }
+.btn-black.is-disabled {
+  color: var(--ink-soft);
+  border-color: var(--line);
+  background: rgba(255,255,255,.72);
+  box-shadow: none;
+  pointer-events: none;
+}
+
+main { display: block; }
+
+.grid {
+  position: relative;
+  gap: 12px;
+  padding: 12px;
+  border: 1px solid rgba(255,255,255,.9);
+  border-radius: 26px;
+  background: rgba(255,255,255,.72);
+  box-shadow: var(--shadow);
+}
+
+.video-card {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border-radius: 17px;
+  background: #eaf0f4;
+}
+.video-card video, .video-card img { border-radius: 17px !important; }
+.video-card::after {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  padding: 6px 10px;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,.25);
+  border-radius: 999px;
+  background: rgba(10,25,38,.58);
+  backdrop-filter: blur(8px);
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.video-card:nth-child(1)::after { content: "Trajectory 01"; }
+.video-card:nth-child(2)::after { content: "Control setup"; }
+.video-card:nth-child(3)::after { content: "Trajectory 02"; }
+
+.section-description,
+.abstract-description,
+.method-description,
+.ablation-description,
+.comparison-description {
+  color: var(--ink-soft) !important;
+  font-size: 16px;
+  line-height: 1.85;
+}
+
+.section-description {
+  max-width: 960px;
+  margin: 32px auto 88px;
+  padding: 0 22px;
+}
+.section-description strong { color: var(--blue-deep); }
+
+.abstract-section,
+.method-section,
+.ablation-section,
+.comparison-section,
+.more-result-section {
+  position: relative;
+  margin: 0 0 34px;
+  padding: clamp(28px, 5vw, 56px);
+  border: 1px solid var(--line);
+  border-radius: 26px;
+  background: var(--surface);
+  box-shadow: 0 12px 34px rgba(34,75,107,.055);
+}
+
+.abstract-title,
+.method-title,
+.ablation-title {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 0 0 28px !important;
+  color: var(--ink);
+  font-size: clamp(26px, 3vw, 38px);
+  line-height: 1.15;
+  letter-spacing: -.025em;
+}
+.abstract-title::before,
+.method-title::before,
+.ablation-title::before {
+  content: "";
+  width: 8px;
+  height: 30px;
+  flex: 0 0 auto;
+  border-radius: 999px;
+  background: linear-gradient(var(--blue), var(--orange));
+}
+
+.method-image {
+  margin: 32px 0 26px;
+  padding: clamp(12px, 2vw, 22px);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: #fff;
+}
+.method-image img { border-radius: 12px; }
+
+.case-wrapper {
+  gap: 18px;
+  margin: 20px 0 !important;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: #f8fafc;
+}
+.case-wrapper-ablation1 { top: 0 !important; }
+.case-label {
+  height: auto;
+  min-width: 30px;
+  color: var(--blue-deep);
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.ablation-videos { gap: 18px; }
+.ablation-videos.four-videos { gap: 22px; }
+.video-pair { gap: 8px; }
+.ablation-videos .video-item video {
+  border: 1px solid rgba(17,24,39,.08);
+  border-radius: 12px;
+  background: #e8edf1;
+  box-shadow: 0 6px 18px rgba(32,54,70,.08);
+}
+.video-label {
+  max-width: 300px;
+  color: var(--ink-soft);
+  font-size: 12px;
+  line-height: 1.35 !important;
+}
+.ablation-description { margin: 28px 4px 64px; }
+.comparison-section .video-container { margin: 0 0 26px; }
+.comparison-section .video-container video { border-radius: 16px !important; box-shadow: var(--shadow); }
+.more-result-section { margin-top: 34px; }
+
+footer {
+  margin: 44px 0 0;
+  padding-top: 26px;
+  border-top: 1px solid var(--line);
+  color: #7b8b9a;
+}
+
+@media (max-width: 900px) {
+  .hero { min-height: 620px; margin-bottom: 44px; }
+  h1 br { display: none; }
+  .grid { grid-template-columns: 1fr; }
+  .video-card { aspect-ratio: 16 / 10; }
+  .ablation-videos, .ablation-videos.four-videos, .ablation-videos.three-videos {
+    flex-wrap: wrap;
+  }
+  .case-wrapper { align-items: stretch; }
+  .case-label {
+    width: 100%;
+    writing-mode: horizontal-tb;
+    transform: none;
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 620px) {
+  .wrap { width: min(100% - 24px, 1180px); padding-bottom: 40px; }
+  .hero { min-height: 570px; padding-inline: 28px; }
+  .hero::before { inset: 12px; border-radius: 24px; }
+  .method-icon img { max-width: 100px; }
+  h1 { font-size: 36px; }
+  .hero-lead { font-size: 15px; }
+  .links-row { flex-wrap: wrap; justify-content: center; }
+  .grid { padding: 7px; border-radius: 20px; }
+  .video-card, .video-card video, .video-card img { border-radius: 14px !important; }
+  .section-description { margin-bottom: 58px; padding: 0 8px; font-size: 15px; }
+  .abstract-section, .method-section, .ablation-section, .comparison-section, .more-result-section {
+    padding: 24px 18px;
+    border-radius: 20px;
+  }
+  .abstract-title, .method-title, .ablation-title { align-items: flex-start; font-size: 25px; }
+  .case-wrapper { padding: 12px; }
+  .video-pair { flex-wrap: wrap; justify-content: center; }
+  .ablation-videos .video-item video { width: 100%; height: auto; max-width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: .01ms !important; }
+}
