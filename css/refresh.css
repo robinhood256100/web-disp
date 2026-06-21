@@ -92,7 +92,13 @@ body {
   letter-spacing: .13em;
   text-transform: uppercase;
 }
-.eyebrow span { width: 24px; height: 2px; background: var(--orange); }
+.eyebrow span,
+.eyebrow::after {
+  width: 24px;
+  height: 2px;
+  background: var(--orange);
+}
+.eyebrow::after { content: ""; }
 
 h1 {
   max-width: none;
